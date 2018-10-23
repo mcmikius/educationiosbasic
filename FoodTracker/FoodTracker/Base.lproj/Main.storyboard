@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NqN-8M-DsR">
-                                <rect key="frame" x="16" y="40" width="288" height="96.5"/>
+                                <rect key="frame" x="16" y="40" width="288" height="392"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivc-gM-FvE">
                                         <rect key="frame" x="0.0" y="0.0" width="86.5" height="20.5"/>
@@ -39,9 +39,13 @@
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aZv-uh-4e1"/>
                                         </connections>
                                     </button>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="30Z-zi-dNt">
+                                        <rect key="frame" x="0.0" y="104.5" width="288" height="287.5"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Xhi-JO-DcW" secondAttribute="trailing" id="6Ad-pK-rCh"/>
+                                    <constraint firstAttribute="width" secondItem="NqN-8M-DsR" secondAttribute="height" multiplier="36:49" id="QEf-8X-Uwj"/>
                                 </constraints>
                             </stackView>
                         </subviews>
