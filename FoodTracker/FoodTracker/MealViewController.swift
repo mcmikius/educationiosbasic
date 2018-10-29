@@ -8,14 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    //MIKE: Properties
+    //MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +22,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         nameTextField.delegate = self
     }
     
-    //MIKE: UITextFieldDelegate
+    //MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
@@ -33,10 +31,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        mealNameLabel.text = textField.text
     }
     
-    //MIKE: UIImagePickerControllerDelegate
+    //MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismiss(animated: true, completion: nil)
@@ -56,7 +53,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         dismiss(animated: true, completion: nil)
     }
     
-    //MIKE: Actions
+    //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         
         // Hide the keyboard.
@@ -73,8 +70,5 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    /*@IBAction func setDefaultLabelText(_ sender: UIButton) {
-        mealNameLabel.text = "Default Text"
-    }*/
-    
 }
+
