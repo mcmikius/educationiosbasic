@@ -11,7 +11,7 @@ import UIKit
 
 class Meal {
     
-    //MARK: Properties
+    //MIKE: Properties
     
     var name: String
     var photo: UIImage?
