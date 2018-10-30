@@ -46,6 +46,7 @@
                                     <outlet property="nameLabel" destination="Pgf-Fx-YXx" id="bVH-V3-d5f"/>
                                     <outlet property="photoImageView" destination="AsP-HU-Z9B" id="EHB-Ao-TMH"/>
                                     <outlet property="ratingControl" destination="n0g-98-usv" id="bSV-hA-cfF"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="DK2-TX-gIS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -79,23 +80,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NqN-8M-DsR">
-                                <rect key="frame" x="16" y="84" width="288" height="416"/>
+                                <rect key="frame" x="16" y="84" width="288" height="422"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xhi-JO-DcW">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="36"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5u-d0-20H">
-                                        <rect key="frame" x="68.5" y="38" width="151" height="30"/>
+                                        <rect key="frame" x="68.5" y="44" width="151" height="30"/>
                                         <state key="normal" title="Set Default Label Text"/>
                                         <connections>
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aZv-uh-4e1"/>
                                         </connections>
                                     </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="30Z-zi-dNt">
-                                        <rect key="frame" x="0.0" y="76" width="288" height="288"/>
+                                        <rect key="frame" x="0.0" y="82" width="288" height="288"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="30Z-zi-dNt" secondAttribute="height" multiplier="1:1" id="TLv-sR-vbY"/>
@@ -105,7 +106,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-LB-Pnh" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="372" width="252" height="44"/>
+                                        <rect key="frame" x="18" y="378" width="252" height="44"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -116,12 +117,17 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NqN-8M-DsR" firstAttribute="top" secondItem="28T-do-R0l" secondAttribute="bottom" constant="20" id="7i4-E3-qsi"/>
+                            <constraint firstItem="j5P-il-UUC" firstAttribute="top" secondItem="NqN-8M-DsR" secondAttribute="bottom" constant="62" id="Teu-Zr-QPZ"/>
                             <constraint firstItem="NqN-8M-DsR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Xbg-KK-muo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NqN-8M-DsR" secondAttribute="trailing" id="gcm-S1-QoN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="p04-IK-V0Z">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="CLz-iv-ujD"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="CLz-iv-ujD">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="XHu-wy-DmA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="JV8-LP-3pz"/>
                     </navigationItem>
                     <connections>
@@ -174,10 +180,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KT2-BD-DtD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132.5" y="133.09859154929578"/>
+            <point key="canvasLocation" x="1226" y="564"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="1080" height="1080"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DK2-TX-gIS"/>
+    </inferredMetricsTieBreakers>
 </document>
