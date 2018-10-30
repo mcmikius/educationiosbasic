@@ -128,7 +128,11 @@
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="XHu-wy-DmA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JV8-LP-3pz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JV8-LP-3pz">
+                            <connections>
+                                <segue destination="4Pa-cI-iI4" kind="unwind" unwindAction="unwindToMealListWithSender:" id="5Yw-PQ-pnB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="Xhi-JO-DcW" id="Sjk-JP-rgr"/>
@@ -138,6 +142,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="4Pa-cI-iI4" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="fs5-mt-rpy">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="ydW-wX-bfg"/>
