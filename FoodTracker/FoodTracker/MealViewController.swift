@@ -41,7 +41,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         updateSaveButtonState()
     }
     
-    //MIKE: UITextFieldDelegate
+    //MARK: UITextFieldDelegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Disable the Save button while editing.
@@ -59,7 +59,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         navigationItem.title = textField.text
     }
     
-    //MIKE: UIImagePickerControllerDelegate
+    //MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismiss(animated: true, completion: nil)
@@ -79,7 +79,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         dismiss(animated: true, completion: nil)
     }
     
-    //MIKE: Navigation
+    //MARK: Navigation
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -104,7 +104,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         meal = Meal(name: name, photo: photo, rating: rating)
     }
     
-    //MIKE: Actions
+    //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         
         // Hide the keyboard.
@@ -121,7 +121,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    //MIKE: Private Methods
+    //MARK: Private Methods
     
     private func updateSaveButtonState() {
         // Disable the Save button if the text field is empty.

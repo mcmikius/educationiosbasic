@@ -11,7 +11,7 @@ import os.log
 
 class MealTableViewController: UITableViewController {
     
-    //MIKE: Properties
+    //MARK: Properties
     
     var meals = [Meal]()
     
@@ -36,7 +36,7 @@ class MealTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //MIKE: - Table view data source
+    //MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -105,7 +105,7 @@ class MealTableViewController: UITableViewController {
      */
     
     
-    //MIKE: - Navigation
+    //MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -139,7 +139,7 @@ class MealTableViewController: UITableViewController {
     }
     
     
-    //MIKE: Actions
+    //MARK: Actions
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
@@ -162,7 +162,7 @@ class MealTableViewController: UITableViewController {
         }
     }
     
-    //MIKE: Private Methods
+    //MARK: Private Methods
     
     private func loadSampleMeals() {
         

@@ -12,7 +12,7 @@ import os.log
 
 class Meal: NSObject, NSCoding {
     
-    //MIKE: Properties
+    //MARK: Properties
     
     var name: String
     var photo: UIImage?
@@ -22,7 +22,7 @@ class Meal: NSObject, NSCoding {
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("meals")
     
-    //MIKE: Types
+    //MARK: Types
     
     struct PropertyKey {
         static let name = "name"
@@ -30,7 +30,7 @@ class Meal: NSObject, NSCoding {
         static let rating = "rating"
     }
     
-    //MIKE: Initialization
+    //MARK: Initialization
     
     init?(name: String, photo: UIImage?, rating: Int) {
         
@@ -56,7 +56,7 @@ class Meal: NSObject, NSCoding {
         
     }
     
-    //MIKE: NSCoding
+    //MARK: NSCoding
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: PropertyKey.name)
