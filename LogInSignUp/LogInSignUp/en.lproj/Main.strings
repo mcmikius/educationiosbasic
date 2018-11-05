@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Login."; ObjectID = "HdC-U4-yqh"; */
+"HdC-U4-yqh.normalTitle" = "Login.";
+
+/* Class = "UILabel"; text = "Flip ’n’ Stack ‘em"; ObjectID = "RkY-Wb-RJd"; */
+"RkY-Wb-RJd.text" = "Flip ’n’ Stack ‘em";
+
+/* Class = "UILabel"; text = "Already have an account?"; ObjectID = "XAB-xu-we1"; */
+"XAB-xu-we1.text" = "Already have an account?";
+
+/* Class = "UIButton"; normalTitle = "Start stacking"; ObjectID = "esx-hf-3GG"; */
+"esx-hf-3GG.normalTitle" = "Start stacking";
