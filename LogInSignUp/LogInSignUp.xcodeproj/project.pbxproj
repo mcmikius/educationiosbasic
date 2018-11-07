@@ -14,6 +14,7 @@
 		FB9ABA002190205C007168C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9AB9FE2190205C007168C8 /* LaunchScreen.storyboard */; };
 		FB9ABA0B2190205C007168C8 /* LogInSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ABA0A2190205C007168C8 /* LogInSignUpTests.swift */; };
 		FB9ABA162190205C007168C8 /* LogInSignUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ABA152190205C007168C8 /* LogInSignUpUITests.swift */; };
+		FBB98FFE2192CE6E00E7EAB0 /* SignUpEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB98FFC2192CE6E00E7EAB0 /* SignUpEmail.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		FB9ABA152190205C007168C8 /* LogInSignUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInSignUpUITests.swift; sourceTree = "<group>"; };
 		FB9ABA172190205C007168C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB9ABA24219031D1007168C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		FBB98FFD2192CE6E00E7EAB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUpEmail.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				FB9AB9F52190205A007168C8 /* AppDelegate.swift */,
 				FB9AB9F72190205A007168C8 /* ViewController.swift */,
 				FB9AB9F92190205A007168C8 /* Main.storyboard */,
+				FBB98FFC2192CE6E00E7EAB0 /* SignUpEmail.storyboard */,
 				FB9AB9FC2190205C007168C8 /* Assets.xcassets */,
 				FB9AB9FE2190205C007168C8 /* LaunchScreen.storyboard */,
 				FB9ABA012190205C007168C8 /* Info.plist */,
@@ -233,6 +236,7 @@
 				FB9ABA002190205C007168C8 /* LaunchScreen.storyboard in Resources */,
 				FB9AB9FD2190205C007168C8 /* Assets.xcassets in Resources */,
 				FB9AB9FB2190205A007168C8 /* Main.storyboard in Resources */,
+				FBB98FFE2192CE6E00E7EAB0 /* SignUpEmail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +313,14 @@
 				FB9AB9FF2190205C007168C8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FBB98FFC2192CE6E00E7EAB0 /* SignUpEmail.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBB98FFD2192CE6E00E7EAB0 /* Base */,
+			);
+			name = SignUpEmail.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
