@@ -6,5 +6,6 @@
         <page name='Tuple'/>
         <page name='Optionals'/>
         <page name='Functions'/>
+        <page name='Array'/>
     </pages>
 </playground>

@@ -51,3 +51,40 @@ while i <= 100 {
 
 print("sum = \(sum)")
 
+
+//Course
+
+for number in 1...10 {
+    print(number)
+}
+for abc in "a...c" {
+    print(abc)
+}
+
+
+var d = 0
+while d < 3 {
+    d += 1
+    print(d)
+}
+
+var c = 0
+repeat {
+    c += 1
+    print(c)
+} while c < 3
+
+
+var splitted: [String.SubSequence] = "a, b, c" .split(separator:",")
+for (index, value) in splitted.enumerated() {
+    
+    print("\(index): \n \"\(value)\"", terminator: "")
+    
+}
+
+
+let array = [4.0, 4, 5]
+
+array.forEach {
+    print($0)
+}
