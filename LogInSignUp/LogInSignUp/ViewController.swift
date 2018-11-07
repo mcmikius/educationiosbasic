@@ -10,16 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var registration: UIButton!
+    
+    @IBOutlet weak var registrationButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        registration.layer.shadowOpacity = 1
-        registration.layer.shadowColor = UIColor.black.cgColor
+        
+        
+        
+        
+        
+        registrationButton.layer.shadowOpacity = 0.11
+        registrationButton.layer.shadowColor = UIColor.black.cgColor
     }
-    @IBAction func registration(_ sender: UIButton) {
+    
+    @IBAction func registrationButton(_ sender: UIButton) {
     }
+    
 
 }
 

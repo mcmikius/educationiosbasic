@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB4F947321937A5500CD727E /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F947221937A5500CD727E /* SignUpPasswordViewController.swift */; };
 		FB9AB9F62190205A007168C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9AB9F52190205A007168C8 /* AppDelegate.swift */; };
 		FB9AB9F82190205A007168C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9AB9F72190205A007168C8 /* ViewController.swift */; };
 		FB9AB9FB2190205A007168C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9AB9F92190205A007168C8 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		FB9ABA002190205C007168C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9AB9FE2190205C007168C8 /* LaunchScreen.storyboard */; };
 		FB9ABA0B2190205C007168C8 /* LogInSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ABA0A2190205C007168C8 /* LogInSignUpTests.swift */; };
 		FB9ABA162190205C007168C8 /* LogInSignUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ABA152190205C007168C8 /* LogInSignUpUITests.swift */; };
+		FBA5A0CC219376500049F872 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA5A0CB219376500049F872 /* SignUpEmailViewController.swift */; };
 		FBB98FFE2192CE6E00E7EAB0 /* SignUpEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB98FFC2192CE6E00E7EAB0 /* SignUpEmail.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB4F947221937A5500CD727E /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
 		FB9AB9F22190205A007168C8 /* LogInSignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogInSignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9AB9F52190205A007168C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB9AB9F72190205A007168C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		FB9ABA152190205C007168C8 /* LogInSignUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInSignUpUITests.swift; sourceTree = "<group>"; };
 		FB9ABA172190205C007168C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB9ABA24219031D1007168C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		FBA5A0CB219376500049F872 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		FBB98FFD2192CE6E00E7EAB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUpEmail.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +106,8 @@
 			children = (
 				FB9AB9F52190205A007168C8 /* AppDelegate.swift */,
 				FB9AB9F72190205A007168C8 /* ViewController.swift */,
+				FBA5A0CB219376500049F872 /* SignUpEmailViewController.swift */,
+				FB4F947221937A5500CD727E /* SignUpPasswordViewController.swift */,
 				FB9AB9F92190205A007168C8 /* Main.storyboard */,
 				FBB98FFC2192CE6E00E7EAB0 /* SignUpEmail.storyboard */,
 				FB9AB9FC2190205C007168C8 /* Assets.xcassets */,
@@ -261,6 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBA5A0CC219376500049F872 /* SignUpEmailViewController.swift in Sources */,
+				FB4F947321937A5500CD727E /* SignUpPasswordViewController.swift in Sources */,
 				FB9AB9F82190205A007168C8 /* ViewController.swift in Sources */,
 				FB9AB9F62190205A007168C8 /* AppDelegate.swift in Sources */,
 			);

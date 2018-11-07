@@ -9,3 +9,7 @@ for element in array.sorted().reversed(){
     print(element)
 }
 //array.insert([4, 5], at: array.endIndex)
+
+let a: [Int] = []
+let dict: [String: String?] = ["session" : "str"]
+dict["session"]
