@@ -8,5 +8,6 @@
         <page name='Functions'/>
         <page name='Array'/>
         <page name='Closures'/>
+        <page name='CompletionHandler'/>
     </pages>
 </playground>
