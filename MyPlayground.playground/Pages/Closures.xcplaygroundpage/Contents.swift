@@ -106,6 +106,7 @@ var index = 1
 for _ in 1...5 {
     closureArray.append { [index] in
         print(index)
+        //error in closureArray without [index] in
     }
     index += 1
 }
