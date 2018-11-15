@@ -7,5 +7,6 @@
         <page name='Optionals'/>
         <page name='Functions'/>
         <page name='Array'/>
+        <page name='Closures'/>
     </pages>
 </playground>
