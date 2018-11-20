@@ -3,5 +3,6 @@
     <pages>
         <page name='DataType'/>
         <page name='variablesAndConstant'/>
+        <page name='Set'/>
     </pages>
 </playground>
