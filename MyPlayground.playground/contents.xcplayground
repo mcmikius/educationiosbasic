@@ -8,6 +8,11 @@
         <page name='Functions'/>
         <page name='Array'/>
         <page name='Closures'/>
-        <page name='CompletionHandler'/>
+        <page name='Collections'/>
+        <page name='CompletionHandlerGuard'/>
+        <page name='Struct'/>
+        <page name='Initializer'/>
+        <page name='Methods'/>
+        <page name='Classes'/>
     </pages>
 </playground>

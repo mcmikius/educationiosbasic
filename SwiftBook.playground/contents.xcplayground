@@ -7,5 +7,6 @@
         <page name='Cycles'/>
         <page name='Operators'/>
         <page name='Func'/>
+        <page name='Enums'/>
     </pages>
 </playground>
