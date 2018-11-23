@@ -14,5 +14,9 @@
         <page name='Initializer'/>
         <page name='Methods'/>
         <page name='Classes'/>
+        <page name='Protocol'/>
+        <page name='Extension'/>
+        <page name='Enum'/>
+        <page name='Exception'/>
     </pages>
 </playground>
