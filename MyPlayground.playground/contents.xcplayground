@@ -18,5 +18,7 @@
         <page name='Extension'/>
         <page name='Enum'/>
         <page name='Exception'/>
+        <page name='Generics'/>
+        <page name='Librares'/>
     </pages>
 </playground>
