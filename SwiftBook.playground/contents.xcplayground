@@ -9,5 +9,10 @@
         <page name='Func'/>
         <page name='Enums'/>
         <page name='ClassesAndStruct'/>
+        <page name='Methods'/>
+        <page name='Initialization'/>
+        <page name='Optional chaining'/>
+        <page name='ErrorHandler'/>
+        <page name='Types'/>
     </pages>
 </playground>
