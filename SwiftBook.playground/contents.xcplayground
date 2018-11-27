@@ -8,5 +8,6 @@
         <page name='Operators'/>
         <page name='Func'/>
         <page name='Enums'/>
+        <page name='ClassesAndStruct'/>
     </pages>
 </playground>
