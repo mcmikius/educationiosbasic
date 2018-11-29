@@ -14,5 +14,7 @@
         <page name='Optional chaining'/>
         <page name='ErrorHandler'/>
         <page name='Types'/>
+        <page name='AnyObjectAny'/>
+        <page name='Extensions'/>
     </pages>
 </playground>

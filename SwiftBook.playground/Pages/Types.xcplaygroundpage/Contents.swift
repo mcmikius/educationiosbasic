@@ -12,7 +12,7 @@ class Movie: MediaItem {
         super.init(name: name)
     }
 }
- 
+
 class Song: MediaItem {
     var artist: String
     init(name: String, artist: String) {
@@ -30,7 +30,7 @@ let library = [
     ]
 var movieCount = 0
 var songCount = 0
- 
+
 for item in library {
     if item is Movie {
         movieCount += 1
@@ -38,7 +38,7 @@ for item in library {
         songCount += 1
     }
 }
- 
+
 print("В Media библиотеке содержится \(movieCount) фильма и \(songCount) песни")
 
 for item in library {
