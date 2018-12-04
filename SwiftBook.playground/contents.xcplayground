@@ -16,5 +16,8 @@
         <page name='Types'/>
         <page name='AnyObjectAny'/>
         <page name='Extensions'/>
+        <page name='Protocol'/>
+        <page name='Generic'/>
+        <page name='AssociatedType'/>
     </pages>
 </playground>
