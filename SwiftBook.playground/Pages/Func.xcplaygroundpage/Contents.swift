@@ -2,26 +2,26 @@ func greet(person: String) -> String {
     let greeting = "Hello, " + person + "!"
     return greeting
 }
-print(greet("Anna"))
+print(greet(person: "Anna"))
 // Prints "Hello, Anna!"
-print(greet("Brian"))
+print(greet(person: "Brian"))
 // Prints "Hello, Brian!
 
 
 func greetAgain(person: String) -> String {
     return "Hello again, " + person + "!"
 }
-print(greetAgain("Anna"))
+print(greetAgain(person: "Anna"))
 // Выведет "Hello again, Anna!
 
 func greet(person: String, alreadyGreeted: Bool) -> String {
     if alreadyGreeted {
-        return greetAgain(person)
+        return greetAgain(person: person)
     } else {
-        return greet(person)
+        return greet(person: person)
     }
 }
-print(greet("Tim", alreadyGreeted: true))
+print(greet(person: "Tim", alreadyGreeted: true))
 
 /*
 func minMax(array: [Int]) -> (min: Int, max: Int) {
@@ -55,14 +55,14 @@ func minMax(array: [Int]) -> (min: Int, max: Int)? {
     return (currentMin, currentMax)
     
 }
-if let bounds = minMax([8, -6, 2, 109, 3, 71]) {
+if let bounds = minMax(array: [8, -6, 2, 109, 3, 71]) {
     print("min is \(bounds.min) and max is \(bounds.max)")
 }
 
-func greet(person: String, from hometown: String) -> String {
+func greet(_ person: String, from hometown: String) -> String {
     return "Hello \(person)!  Glad you could visit from \(hometown)."
 }
-print(greet("Bill", from: "Cupertino"))
+print(greet(_: "Bill", from: "Cupertino"))
 
 func arithmeticMean(numbers: Double...) -> Double {
     var total: Double = 0
@@ -71,11 +71,11 @@ func arithmeticMean(numbers: Double...) -> Double {
     }
     return total / Double(numbers.count)
 }
-arithmeticMean(1, 2, 3, 4, 5)
+arithmeticMean(numbers: 1, 2, 3, 4, 5)
 
-arithmeticMean(3, 8.25, 18.75)
+arithmeticMean(numbers: 3, 8.25, 18.75)
 
-func swapTwoInts(inout _ a: Int, inout _ b: Int) {
+func swapTwoInts( _ a: inout Int, _ b: inout Int) {
     let temporaryA = a
     a = b
     b = temporaryA
@@ -131,7 +131,7 @@ func chooseStepFunction(backward: Bool) -> (Int) -> Int {
 }
 
 var currentValue = 3
-let moveNearerToZero = chooseStepFunction(currentValue > 0)
+let moveNearerToZero = chooseStepFunction(backward: currentValue > 0)
 print("Counting to zero:")
 // Counting to zero:
 while currentValue != 0 {
@@ -147,7 +147,7 @@ func chooseStepFunction2(backward2: Bool) -> (Int) -> Int {
     return backward2 ? stepBackward2 : stepForward2
 }
 var currentValue2 = -4
-let moveNearerToZero2 = chooseStepFunction2(currentValue2 > 0)
+let moveNearerToZero2 = chooseStepFunction2(backward2: currentValue2 > 0)
 // moveNearerToZero теперь ссылается на вложенную функцию stepForward()
 while currentValue2 != 0 {
     print("\(currentValue2)... ")
