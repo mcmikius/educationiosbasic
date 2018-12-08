@@ -17,7 +17,7 @@ struct IntStack: Container {
     // удовлетворение требований протокола Container
     typealias Item = Int
     mutating func append(item: Int) {
-        self.push(item)
+        self.push(item: item)
     }
     var count: Int {
         return items.count
@@ -39,7 +39,7 @@ struct Stack<Element>: Container {
     }
     // удовлетворение требований протокола Container
     mutating func append(item: Element) {
-        self.push(item)
+        self.push(item: item)
     }
     var count: Int {
         return items.count
@@ -78,9 +78,9 @@ where C1.Item == C2.Item, C1.Item: Equatable {
 }
 
 var stackOfStrings = Stack<String>()
-stackOfStrings.push("uno")
-stackOfStrings.push("dos")
-stackOfStrings.push("tres")
+stackOfStrings.push(item: "uno")
+stackOfStrings.push(item: "dos")
+stackOfStrings.push(item: "tres")
 
 var arrayOfStrings = ["uno", "dos", "tres"]
 
@@ -100,7 +100,7 @@ extension Stack where Element: Equatable {
     }
 }
 
-if stackOfStrings.isTop("tres") {
+if stackOfStrings.isTop(item: "tres") {
     print("Top element is tres.")
 } else {
     print("Top element is something else.")

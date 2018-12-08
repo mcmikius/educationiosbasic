@@ -40,13 +40,13 @@ if let name = optionalName {
 let vegetable = "red pepper"
 switch vegetable {
 case "celery":
-    let vegetableComment = "Add some raisins and make ants on a log."
+    _ = "Add some raisins and make ants on a log."
 case "cucumber", "watercress":
-    let vegetableComment = "That would make a good tea sandwich."
+    _ = "That would make a good tea sandwich."
 case let x where x.hasSuffix("pepper"):
-    let vegetableComment = "Is it a spicy \(x)?"
+    _ = "Is it a spicy \(x)?"
 default:
-    let vegetableComment = "Everything tastes good in soup."
+    _ = "Everything tastes good in soup."
 }
 
 
@@ -57,7 +57,7 @@ let interestingNumbers = [
 ]
 var largest = 0
 var moreLargest = 4
-for (kind, numbers) in interestingNumbers {
+for (_, numbers) in interestingNumbers {
     for number in numbers {
         if number > largest {
             largest = number
@@ -66,7 +66,7 @@ for (kind, numbers) in interestingNumbers {
 }
 print(largest)
 
-for (kind, numbers) in interestingNumbers {
+for (_, numbers) in interestingNumbers {
     for number in numbers {
         if number > moreLargest {
             moreLargest = number
@@ -94,7 +94,7 @@ func lessThanTen(number: Int) -> Bool {
     return number < 10
 }
 var numbers = [20, 19, 7, 12]
-hasAnyMatches(numbers, condition: lessThanTen)
+hasAnyMatches(list: numbers, condition: lessThanTen)
 
 
 numbers.map({ (number: Int) -> Int in
