@@ -21,7 +21,7 @@ protocol Player : Person{
 extension Player{
     
     func raiseSalary(quantity:UInt) -> UInt {
-        return calcSalary(quantity)
+        return calcSalary(quantity: quantity)
     }
     
     func calcSalary(quantity: UInt) -> UInt {

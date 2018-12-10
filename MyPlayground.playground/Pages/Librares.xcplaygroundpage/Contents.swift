@@ -6,7 +6,7 @@ func randomNumber(lower: UInt32, upper: UInt32) -> UInt{
 }
 
 for _ in 1...10 {
-    print(randomNumber(1, upper: 10))
+    print(randomNumber(lower: 1, upper: 10))
 }
 
 
@@ -32,7 +32,7 @@ enum Month:Int {
         
         let lower:UInt32 = 1
         let upper:UInt32 = 12
-        let number = randomNumber(lower, upper: upper)
+        let number = randomNumber(lower: lower, upper: upper)
         
         return Month(rawValue: Int(number))!
     }
