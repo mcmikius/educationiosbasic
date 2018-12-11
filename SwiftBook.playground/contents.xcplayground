@@ -20,5 +20,6 @@
         <page name='Generic'/>
         <page name='AssociatedType'/>
         <page name='ARC'/>
+        <page name='Bites operators'/>
     </pages>
 </playground>
