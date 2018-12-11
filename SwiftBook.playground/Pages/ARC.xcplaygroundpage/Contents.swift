@@ -81,7 +81,7 @@ class Customer {
     }
     deinit { print("\(name) деинициализируется") }
 }
-  
+
 class CreditCard {
     let number: UInt64
     unowned let customer: Customer
