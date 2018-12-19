@@ -10,6 +10,7 @@ import UIKit
 
 final class ViewController: UIViewController {
 
+    @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var errorMessageLabel: UILabel!
     
     override func viewDidLoad() {
@@ -20,9 +21,11 @@ final class ViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         let formattedDate = formatter.string(from: date)
-        //let time = "15:10"
+        
         errorMessageLabel.text = String(format: "Offline mode... Time: %@", formattedDate)
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        TableView.tableFooterView = UIView(frame: .zero)
+    
     }
 
 
@@ -35,6 +38,7 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath)
         return UITableViewCell()
     }
 
