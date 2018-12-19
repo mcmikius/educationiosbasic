@@ -10,18 +10,23 @@ import UIKit
 
 class TaskListController: UITableViewController {
     
+    let dateFormatter = DateFormatter()
+    
     //the temporary array for test data
     private var taskList:[Task] = [
         Task(name:"Task 1", category:"Category1"),
         Task(name:"Task 2", category:"Category2"),
-        Task(name:"Task 3", category:"Category3"),
-        Task(name:"Task 4", category:"Category4"),
+        Task(name:"Task 3", category:"Category3", priority:"High", deadline: Date()),
+        Task(name:"Task 4", category:"Category4", deadline: Date()),
         Task(name:"Task 5", category:"Category5"),
         Task(name:"Task 6", category:"Category6")
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,8 +53,17 @@ class TaskListController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
         
-        cell.textLabel?.text = taskList[indexPath.row].name // from array get value by index and view 'name'
-        cell.detailTextLabel?.text = taskList[indexPath.row].category // from array get value by index and view 'category'
+        let task = taskList[indexPath.row]
+        
+        cell.textLabel?.text = task.name + " " + (task.priority ?? "") // from array get value by index and view 'name'
+        
+        // check the date on the void
+        if let deadline = task.deadline{
+            cell.detailTextLabel?.text = (task.category ?? "") + " " + dateFormatter.string(from: deadline) // from array get value by index and view 'category'
+        } else {
+            cell.detailTextLabel?.text = task.category
+        }
+       
 
         return cell
     }
