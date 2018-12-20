@@ -16,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let urls = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
+        print(urls[urls.count-1] as URL) //get way to application folder
+        
+        
         return true
     }
 

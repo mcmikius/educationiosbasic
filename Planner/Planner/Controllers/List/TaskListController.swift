@@ -13,6 +13,8 @@ class TaskListController: UITableViewController {
     let dateFormatter = DateFormatter()
     
     //the temporary array for test data
+    
+    /*
     private var taskList:[Task] = [
         Task(name:"Task 1", category:"Category1"),
         Task(name:"Task 2", category:"Category2"),
@@ -21,6 +23,7 @@ class TaskListController: UITableViewController {
         Task(name:"Task 5", category:"Category5"),
         Task(name:"Task 6", category:"Category6")
     ]
+ */
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +49,7 @@ class TaskListController: UITableViewController {
     
     //numbers of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return taskList.count
+        return 1
     }
 
     //show data in a row
@@ -55,7 +58,7 @@ class TaskListController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath) as? TaskListCell else {
             fatalError("cell type")
         }
-        
+        /*
         let task = taskList[indexPath.row]
         
         cell.labelTaskName.text = task.name   // + " " + (task.priority ?? "") // from array get value by index and view 'name'
@@ -66,7 +69,7 @@ class TaskListController: UITableViewController {
         } else {
             cell.labelDeadline?.text = ""
         }
-        
+        */
         /*
         // check the date on the void
         if let deadline = task.deadline{
