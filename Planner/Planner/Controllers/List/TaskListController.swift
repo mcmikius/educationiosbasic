@@ -51,19 +51,30 @@ class TaskListController: UITableViewController {
 
     //show data in a row
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath) as? TaskListCell else {
+            fatalError("cell type")
+        }
         
         let task = taskList[indexPath.row]
         
-        cell.textLabel?.text = task.name + " " + (task.priority ?? "") // from array get value by index and view 'name'
+        cell.labelTaskName.text = task.name   // + " " + (task.priority ?? "") // from array get value by index and view 'name'
+        cell.labelTaskCategory.text = (task.category ?? "")
         
+        if let deadline = task.deadline{
+            cell.labelDeadline?.text = dateFormatter.string(from: deadline) // from array get value by index and view 'category'
+        } else {
+            cell.labelDeadline?.text = ""
+        }
+        
+        /*
         // check the date on the void
         if let deadline = task.deadline{
             cell.detailTextLabel?.text = (task.category ?? "") + " " + dateFormatter.string(from: deadline) // from array get value by index and view 'category'
         } else {
             cell.detailTextLabel?.text = task.category
         }
-       
+       */
 
         return cell
     }
