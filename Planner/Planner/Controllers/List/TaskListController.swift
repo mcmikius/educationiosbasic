@@ -26,7 +26,7 @@ class TaskListController: UITableViewController {
         super.viewDidLoad()
         
         dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
+        dateFormatter.timeStyle = .none
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
