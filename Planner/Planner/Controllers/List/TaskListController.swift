@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class TaskListController: UITableViewController {
     
     let dateFormatter = DateFormatter()
+    
+    var context:NSManagedObjectContext! // for conect with DB
     
     //the temporary array for test data
     
@@ -36,6 +39,79 @@ class TaskListController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // for conect with context
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("appDelegate error")
+            
+        }
+        // get context from persistent container
+        context = appDelegate.persistentContainer.viewContext
+        
+        //add category
+        let cat1 = addCategory(name: "Sport")
+        let cat2 = addCategory(name: "Family")
+        let cat3 = addCategory(name: "Rest")
+        
+        //add priority
+        let priority1 = addPriority(name: "Low", index: 1)
+        let priority2 = addPriority(name: "Medium", index: 2)
+        let priority3 = addPriority(name: "High", index: 3)
+        
+        //add task with category and empty priority
+        let task1 = addTask(name: "Go to poll", completed: false, deadline: Date(), info: "add info", category: cat1, priority: priority1)
+        let task2 = addTask(name: "Go to natural", completed: false, deadline: Date(), info: "add info", category: cat2, priority: nil)
+        let task3 = addTask(name: "Wish auto", completed: false, deadline: Date(), info: "add info", category: cat1, priority: priority2)
+        let task4 = addTask(name: "Move to trash", completed: false, deadline: Date(), info: "add info", category: cat3, priority: priority1)
+        let task5 = addTask(name: "Go to football", completed: false, deadline: Date(), info: "add info", category: cat1, priority: priority3)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func addCategory(name: String) -> Category {
+        let category = Category(context: context)
+        category.name = name
+        
+        do {
+            try context.save() // save each new object
+        } catch let error as NSError {
+            print("Could not save. \(error)")
+        }
+        return category //return saved category
+    }
+    
+    func addPriority(name: String, index: Int32) -> Priority {
+        let priority = Priority(context: context)
+        priority.name = name
+        priority.index = index
+        
+        do {
+            try context.save() // save each new object
+        } catch let error as NSError {
+            print("Could not save. \(error)")
+        }
+        return priority //return saved category
+    }
+    
+    func addTask(name: String, completed: Bool, deadline: Date?, info: String?, category: Category?, priority: Priority?) -> Task {
+        
+        let task = Task(context: context)
+        
+        task.name = name
+        task.completed = completed
+        task.deadline = deadline
+        task.info = info
+        task.category = category
+        task.priority = priority
+        
+        do {
+            try context.save() // save each new object
+        } catch let error as NSError {
+            print("Could not save. \(error)")
+        }
+        return task
     }
 
     // MARK: - Table view data source
