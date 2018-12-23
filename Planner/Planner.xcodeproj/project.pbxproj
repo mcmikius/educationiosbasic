@@ -16,6 +16,8 @@
 		FB5EA82521AC07E600F27FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5EA82321AC07E600F27FBD /* LaunchScreen.storyboard */; };
 		FB5EA83021AC07E600F27FBD /* PlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EA82F21AC07E600F27FBD /* PlannerTests.swift */; };
 		FB5EA83B21AC07E600F27FBD /* PlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EA83A21AC07E600F27FBD /* PlannerUITests.swift */; };
+		FB8505E121D0071B00D77FEC /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8505E021D0071B00D77FEC /* DateExtension.swift */; };
+		FB8505E321D0283500D77FEC /* TaskExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8505E221D0283500D77FEC /* TaskExtension.swift */; };
 		FB8E241F21C8D0C100C8892B /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8E241E21C8D0C100C8892B /* TaskListController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		FB5EA83621AC07E600F27FBD /* PlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5EA83A21AC07E600F27FBD /* PlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerUITests.swift; sourceTree = "<group>"; };
 		FB5EA83C21AC07E600F27FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB8505E021D0071B00D77FEC /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		FB8505E221D0283500D77FEC /* TaskExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExtension.swift; sourceTree = "<group>"; };
 		FB8E241E21C8D0C100C8892B /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +115,7 @@
 		FB5EA81621AC07E600F27FBD /* Planner */ = {
 			isa = PBXGroup;
 			children = (
+				FB8505DF21D006A000D77FEC /* Extensions */,
 				FB338A1221CC0795003E533B /* Cells */,
 				FB8E242021C8DB7600C8892B /* Objects */,
 				FB8E241D21C8CFDD00C8892B /* Storyboards */,
@@ -139,6 +144,15 @@
 				FB5EA83C21AC07E600F27FBD /* Info.plist */,
 			);
 			path = PlannerUITests;
+			sourceTree = "<group>";
+		};
+		FB8505DF21D006A000D77FEC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FB8505E021D0071B00D77FEC /* DateExtension.swift */,
+				FB8505E221D0283500D77FEC /* TaskExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FB8E241B21C8CF6400C8892B /* Controllers */ = {
@@ -308,7 +322,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8505E321D0283500D77FEC /* TaskExtension.swift in Sources */,
 				FB5EA81A21AC07E600F27FBD /* ViewController.swift in Sources */,
+				FB8505E121D0071B00D77FEC /* DateExtension.swift in Sources */,
 				FB5EA81821AC07E600F27FBD /* AppDelegate.swift in Sources */,
 				FB8E241F21C8D0C100C8892B /* TaskListController.swift in Sources */,
 				FB338A1421CC07EF003E533B /* TaskListCell.swift in Sources */,

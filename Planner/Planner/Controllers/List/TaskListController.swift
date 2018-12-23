@@ -1,10 +1,3 @@
-//
-//  TaskListController.swift
-//  Planner
-//
-//  Created by Michail Bondarenko on 12/18/18.
-//  Copyright © 2018 Michail Bondarenko. All rights reserved.
-//
 
 import UIKit
 import CoreData
@@ -13,91 +6,122 @@ class TaskListController: UITableViewController {
     
     let dateFormatter = DateFormatter()
     
-    var context:NSManagedObjectContext! // for conect with DB
+    var taskList:[Task]! // коллекция, которая будет заполняться из БД
     
-    //the temporary array for test data
+    var context:NSManagedObjectContext! // контекст для связи объектов с БД
     
-    /*
-    private var taskList:[Task] = [
-        Task(name:"Task 1", category:"Category1"),
-        Task(name:"Task 2", category:"Category2"),
-        Task(name:"Task 3", category:"Category3", priority:"High", deadline: Date()),
-        Task(name:"Task 4", category:"Category4", deadline: Date()),
-        Task(name:"Task 5", category:"Category5"),
-        Task(name:"Task 6", category:"Category6")
-    ]
- */
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //
+        //        // симулятор загрузки формы (чтобы успеть посмотреть launchscreen) - в рабочем проекте естественно нужно будет удалить
+        //        for i in 0...200000 {
+        //            print(i)
+        //        }
         
-        // for conect with context
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError("appDelegate error")
-            
+        // используем AppDelegate для получения доступа к контексту
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                fatalError("appdelegate error")
         }
-        // get context from persistent container
+        
+        // получаем контекст из persistentContainer
         context = appDelegate.persistentContainer.viewContext
         
-        //add category
-        let cat1 = addCategory(name: "Sport")
-        let cat2 = addCategory(name: "Family")
-        let cat3 = addCategory(name: "Rest")
+        initData()// запускаем только 1 раз для заполнения таблиц
         
-        //add priority
-        let priority1 = addPriority(name: "Low", index: 1)
-        let priority2 = addPriority(name: "Medium", index: 2)
-        let priority3 = addPriority(name: "High", index: 3)
+        taskList = getAllTasks()
         
-        //add task with category and empty priority
-        let task1 = addTask(name: "Go to poll", completed: false, deadline: Date(), info: "add info", category: cat1, priority: priority1)
-        let task2 = addTask(name: "Go to natural", completed: false, deadline: Date(), info: "add info", category: cat2, priority: nil)
-        let task3 = addTask(name: "Wish auto", completed: false, deadline: Date(), info: "add info", category: cat1, priority: priority2)
-        let task4 = addTask(name: "Move to trash", completed: false, deadline: Date(), info: "add info", category: cat3, priority: priority1)
-        let task5 = addTask(name: "Go to football", completed: false, deadline: Date(), info: "add info", category: cat1, priority: priority3)
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    func addCategory(name: String) -> Category {
-        let category = Category(context: context)
+    // нужно запускать только 1 раз
+    func initData() {
+        // добавляем категорию
+        let cat1 = addCategory(name: "Sport")
+        let cat2 = addCategory(name: "Family")
+        let cat3 = addCategory(name: "Rest")
+        
+        // добавляем категорию
+        let priority1 = addPriority(name: "Low", index:1)
+        let priority2 = addPriority(name: "Medium", index:2)
+        let priority3 = addPriority(name: "High", index:3)
+        
+        
+        // добавляем задачу с категорием (и пустым приоритетом)
+        let task1 = addTask(name: "Go to poll", completed: false, deadline: Date().rewindDays(10), info: "add. info", category: cat1, priority: priority1)
+        let task2 = addTask(name: "Go to natural", completed: false, deadline: Date().rewindDays(-5), info: "", category: cat3, priority: priority3)
+        let task3 = addTask(name: "Move trash", completed: false, deadline: Date().rewindDays(25), info: "", category: cat1, priority: priority3)
+        let task4 = addTask(name: "Buy products", completed: false, deadline: Date().rewindDays(5), info: "add. info", category: cat2, priority: priority1)
+        let task5 = addTask(name: "Wish auto", completed: false, deadline: Date().today, info: "", category: cat2, priority: priority1)
+        
+    }
+    
+    
+    // получает все задачи из таблицы
+    func getAllTasks() -> [Task] {
+        
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest() // подготовка контейнера для выборки данных
+        
+        let list:[Task]
+        
+        do {
+            list = try context.fetch(fetchRequest) // выборка данных
+        } catch {
+            fatalError("Fetching Failed")
+        }
+        
+        return list
+        
+    }
+    
+    func addCategory(name:String) -> Category{
+        
+        let category = Category(context: context) // указываем контекст для объекта
+        
         category.name = name
         
         do {
-            try context.save() // save each new object
+            try context.save() // сохраняем каждый новый объект
         } catch let error as NSError {
             print("Could not save. \(error)")
         }
-        return category //return saved category
+        
+        return category // возвращаем созданную категорию
     }
     
-    func addPriority(name: String, index: Int32) -> Priority {
-        let priority = Priority(context: context)
+    func addPriority(name:String, index: Int32) -> Priority{
+        
+        let priority = Priority(context: context) // указываем контекст для объекта
+        
         priority.name = name
         priority.index = index
         
         do {
-            try context.save() // save each new object
+            try context.save() // сохраняем каждый новый объект
         } catch let error as NSError {
             print("Could not save. \(error)")
         }
-        return priority //return saved category
+        
+        return priority // возвращаем созданный приоритет
     }
     
-    func addTask(name: String, completed: Bool, deadline: Date?, info: String?, category: Category?, priority: Priority?) -> Task {
+    
+    func addTask(name:String, completed:Bool, deadline:Date?, info:String?, category:Category?, priority:Priority?) -> Task{ // опциональные типы необязательно передавать
         
-        let task = Task(context: context)
+        let task = Task(context: context) // указываем контекст для объекта
         
         task.name = name
         task.completed = completed
@@ -107,113 +131,146 @@ class TaskListController: UITableViewController {
         task.priority = priority
         
         do {
-            try context.save() // save each new object
+            try context.save() // сохраняем каждый новый объект
         } catch let error as NSError {
             print("Could not save. \(error)")
         }
-        return task
+        
+        return task // возвращаем созданную задачу
     }
-
-    // MARK: - Table view data source
     
-    //auto methods of TableView
-
-    //numbers of sections
+    
+    
+    
+    // MARK: tableView
+    
+    // методы вызываются автоматически компонентом tableView
+    
+    // сколько секций нужно отображать в таблице
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    //numbers of rows
+    // сколько будет записей в каждой секции
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return taskList.count
     }
-
-    //show data in a row
+    
+    
+    
+    // отображение данных в строке
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath) as? TaskListCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath) as? TaskListCell else{
             fatalError("cell type")
         }
-        /*
+        
         let task = taskList[indexPath.row]
         
-        cell.labelTaskName.text = task.name   // + " " + (task.priority ?? "") // from array get value by index and view 'name'
-        cell.labelTaskCategory.text = (task.category ?? "")
+        cell.labelTaskName.text = task.name
+        cell.labelTaskCategory.text = (task.category?.name ?? "")
         
-        if let deadline = task.deadline{
-            cell.labelDeadline?.text = dateFormatter.string(from: deadline) // from array get value by index and view 'category'
+        if let priority = task.priority{
+            
+            switch priority.index{
+            case 1:
+                cell.labelPriority.backgroundColor = UIColor(named: "low")
+            case 2:
+                cell.labelPriority.backgroundColor = UIColor(named: "medium")
+            case 3:
+                cell.labelPriority.backgroundColor = UIColor(named: "high")
+            default:
+                cell.labelPriority.backgroundColor = UIColor.white
+            }
         } else {
-            cell.labelDeadline?.text = ""
+                cell.labelPriority.backgroundColor = UIColor.white
+            }
+        
+        cell.labelDeadline.textColor = .lightGray
+        if let diff = task.daysLeft(){
+            
+            switch diff {
+            case 0:
+                cell.labelDeadline.text = "Today"
+            case 1:
+                cell.labelDeadline.text = "Tomorrow"
+            case 0...:
+                cell.labelDeadline.text = "\(diff) days"
+            case ..<0:
+                cell.labelDeadline.textColor = .red
+                cell.labelDeadline.text = "\(diff) days"
+            default:
+                cell.labelDeadline.text = ""
+            }
+            
+        }else{
+            cell.labelDeadline.text = ""
         }
-        */
-        /*
-        // check the date on the void
-        if let deadline = task.deadline{
-            cell.detailTextLabel?.text = (task.category ?? "") + " " + dateFormatter.string(from: deadline) // from array get value by index and view 'category'
-        } else {
-            cell.detailTextLabel?.text = task.category
-        }
-       */
-
         return cell
     }
-    /*
-    //name for each section
+        
+        
+        // проверяем дату на пустоту
+        /*
+ if let deadline = task.deadline{
+            cell.labelDeadline?.text = dateFormatter.string(from: deadline)
+        }else {
+            cell.labelDeadline?.text =  ""
+        }
+        
+        return cell
+    }
+    */
+        
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section" + String(section + 1)
-    }
     
     
-    //height each section
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
- */
-
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
