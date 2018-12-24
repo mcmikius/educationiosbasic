@@ -225,7 +225,21 @@ class TaskListController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            context.delete(taskList[indexPath.row])
+            do {
+                try context.save()
+            } catch let error as NSError {
+                print("Could not save. \(error)")
+            }
+            taskList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .top)
+        } else if editingStyle == .insert {
+            
+        }
+        
+    }
     
     
     /*

@@ -19,6 +19,7 @@
 		FB8505E121D0071B00D77FEC /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8505E021D0071B00D77FEC /* DateExtension.swift */; };
 		FB8505E321D0283500D77FEC /* TaskExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8505E221D0283500D77FEC /* TaskExtension.swift */; };
 		FB8E241F21C8D0C100C8892B /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8E241E21C8D0C100C8892B /* TaskListController.swift */; };
+		FBAC83F221D17B660007AFC7 /* DataBaseConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAC83F121D17B660007AFC7 /* DataBaseConnector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		FB8505E021D0071B00D77FEC /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		FB8505E221D0283500D77FEC /* TaskExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExtension.swift; sourceTree = "<group>"; };
 		FB8E241E21C8D0C100C8892B /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
+		FBAC83F121D17B660007AFC7 /* DataBaseConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseConnector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		FB5EA81621AC07E600F27FBD /* Planner */ = {
 			isa = PBXGroup;
 			children = (
+				FBAC83F021D17B380007AFC7 /* DB */,
 				FB8505DF21D006A000D77FEC /* Extensions */,
 				FB338A1221CC0795003E533B /* Cells */,
 				FB8E242021C8DB7600C8892B /* Objects */,
@@ -186,6 +189,14 @@
 			children = (
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		FBAC83F021D17B380007AFC7 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				FBAC83F121D17B660007AFC7 /* DataBaseConnector.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +335,7 @@
 			files = (
 				FB8505E321D0283500D77FEC /* TaskExtension.swift in Sources */,
 				FB5EA81A21AC07E600F27FBD /* ViewController.swift in Sources */,
+				FBAC83F221D17B660007AFC7 /* DataBaseConnector.swift in Sources */,
 				FB8505E121D0071B00D77FEC /* DateExtension.swift in Sources */,
 				FB5EA81821AC07E600F27FBD /* AppDelegate.swift in Sources */,
 				FB8E241F21C8D0C100C8892B /* TaskListController.swift in Sources */,
