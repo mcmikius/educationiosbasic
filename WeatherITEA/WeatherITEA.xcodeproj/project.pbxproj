@@ -14,6 +14,7 @@
 		FB21221321CABC7600584356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB21221121CABC7600584356 /* LaunchScreen.storyboard */; };
 		FB21221E21CABC7600584356 /* WeatherITEATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB21221D21CABC7600584356 /* WeatherITEATests.swift */; };
 		FB21222921CABC7600584356 /* WeatherITEAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB21222821CABC7600584356 /* WeatherITEAUITests.swift */; };
+		FBAC83F421D227BB0007AFC7 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAC83F321D227BB0007AFC7 /* WeatherCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		FB21222421CABC7600584356 /* WeatherITEAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherITEAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB21222821CABC7600584356 /* WeatherITEAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherITEAUITests.swift; sourceTree = "<group>"; };
 		FB21222A21CABC7600584356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBAC83F321D227BB0007AFC7 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				FB21220F21CABC7600584356 /* Assets.xcassets */,
 				FB21221121CABC7600584356 /* LaunchScreen.storyboard */,
 				FB21221421CABC7600584356 /* Info.plist */,
+				FBAC83F321D227BB0007AFC7 /* WeatherCell.swift */,
 			);
 			path = WeatherITEA;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				FB21220B21CABC7500584356 /* ViewController.swift in Sources */,
 				FB21220921CABC7500584356 /* AppDelegate.swift in Sources */,
+				FBAC83F421D227BB0007AFC7 /* WeatherCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
