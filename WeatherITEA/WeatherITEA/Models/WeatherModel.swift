@@ -34,7 +34,8 @@ struct WeatherModel: Codable {
 
 extension WeatherModel {
     var displayTemperature: String {
-        return "\(main.temp)" + "º"
+        let value = Int(round(main.temp))// - 273
+        return "\(value)" + "º"
     }
     
     var iconUrlPath: String {

@@ -21,6 +21,9 @@
 		FB8A48B121D2A59F0006B1A0 /* WeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8A48B021D2A59F0006B1A0 /* WeatherProvider.swift */; };
 		FB8A48B321D2A8AA0006B1A0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8A48B221D2A8AA0006B1A0 /* Result.swift */; };
 		FBAC83F421D227BB0007AFC7 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAC83F321D227BB0007AFC7 /* WeatherCell.swift */; };
+		FBBB73C021D3F44300E15E62 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBB73BF21D3F44300E15E62 /* UIImageView+Extensions.swift */; };
+		FBD81E2821D3FC8E0053D298 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD81E2721D3FC8E0053D298 /* City.swift */; };
+		FBD81E2A21D3FE340053D298 /* BatchWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD81E2921D3FE340053D298 /* BatchWeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		FB8A48B021D2A59F0006B1A0 /* WeatherProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherProvider.swift; sourceTree = "<group>"; };
 		FB8A48B221D2A8AA0006B1A0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FBAC83F321D227BB0007AFC7 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		FBBB73BF21D3F44300E15E62 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		FBD81E2721D3FC8E0053D298 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		FBD81E2921D3FE340053D298 /* BatchWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchWeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +185,7 @@
 		FB21223621CABCA000584356 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FBBB73BF21D3F44300E15E62 /* UIImageView+Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -197,6 +204,8 @@
 				FB8A48AE21D29DD80006B1A0 /* WeatherModel.swift */,
 				FB8A48B021D2A59F0006B1A0 /* WeatherProvider.swift */,
 				FB8A48B221D2A8AA0006B1A0 /* Result.swift */,
+				FBD81E2721D3FC8E0053D298 /* City.swift */,
+				FBD81E2921D3FE340053D298 /* BatchWeatherModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -364,12 +373,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WeatherITEA/Pods-WeatherITEA-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -428,10 +439,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB8A48B321D2A8AA0006B1A0 /* Result.swift in Sources */,
+				FBBB73C021D3F44300E15E62 /* UIImageView+Extensions.swift in Sources */,
 				FB21220B21CABC7500584356 /* ViewController.swift in Sources */,
 				FB21220921CABC7500584356 /* AppDelegate.swift in Sources */,
 				FB8A48AF21D29DD80006B1A0 /* WeatherModel.swift in Sources */,
 				FBAC83F421D227BB0007AFC7 /* WeatherCell.swift in Sources */,
+				FBD81E2821D3FC8E0053D298 /* City.swift in Sources */,
+				FBD81E2A21D3FE340053D298 /* BatchWeatherModel.swift in Sources */,
 				FB8A48B121D2A59F0006B1A0 /* WeatherProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

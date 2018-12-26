@@ -14,7 +14,32 @@ private let json = """
 """
 
 struct WeatherProvider {
-    func fetchWeather(completion: @escaping (Result<WeatherModel>) -> Void) {
+    
+    private let apiKey = "a1d1dc41d71e2b1c1d329e64770bf088"
+    
+    func fetchWeather(for cities: [City], completion: @escaping (Result<BatchWeatherModel>) -> Void) {
+        let citiesStrings = cities.map { String($0.rawValue) }
+        let citiesPath = citiesStrings.joined(separator: ",")
+        let path = "https://api.openweathermap.org/data/2.5/group?id=\(citiesPath)&units=metric&appid=\(apiKey)"
+        Alamofire.request(path).validate(statusCode: 200..<300).responseJSON { result in
+            guard let data = result.data
+                else {
+                    completion(.error(NSError()))
+                    return
+            }
+            let result: BatchWeatherModel
+            do {
+                result = try JSONDecoder().decode(BatchWeatherModel.self, from: data)
+            } catch {
+                print(error.localizedDescription)
+                completion(.error(error))
+                return
+            }
+            completion(.success(result))
+    }
+        
+        
+    func fetchSingleCityWeather(completion: @escaping (Result<WeatherModel>) -> Void) {
         let path = "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22"
         Alamofire.request(path).validate(statusCode: 200..<300).responseJSON { result in
             guard let data = result.data
@@ -52,3 +77,4 @@ struct WeatherProvider {
     }
 }
 
+}
