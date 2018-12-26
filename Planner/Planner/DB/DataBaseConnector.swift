@@ -22,6 +22,7 @@ class DataBaseConnector {
         }
         // получаем контекст из persistentContainer
         context = appDelegate.persistentContainer.viewContext
+        initData()
     }
     // получает все задачи из таблицы
     func getAllTasks() -> [Task] {
@@ -117,8 +118,8 @@ class DataBaseConnector {
         
         // добавляем задачу с категорием (и пустым приоритетом)
         let task1 = addTask(name: "Go to poll", completed: false, deadline: Date().rewindDays(10), info: "add. info", category: cat1, priority: priority1)
-        let task2 = addTask(name: "Go to natural", completed: false, deadline: Date().rewindDays(-5), info: "", category: cat3, priority: priority3)
-        let task3 = addTask(name: "Move trash", completed: false, deadline: Date().rewindDays(25), info: "", category: cat1, priority: priority3)
+        let task2 = addTask(name: "Go to natural", completed: false, deadline: Date().rewindDays(-5), info: "djcvkdjfbvkdjf", category: cat3, priority: priority3)
+        let task3 = addTask(name: "Move trash", completed: false, deadline: Date().rewindDays(25), info: "djch djvh bd", category: cat1, priority: priority3)
         let task4 = addTask(name: "Buy products", completed: false, deadline: Date().rewindDays(5), info: "add. info", category: cat2, priority: priority1)
         let task5 = addTask(name: "Wish auto", completed: false, deadline: Date().today, info: "", category: cat2, priority: priority1)
         

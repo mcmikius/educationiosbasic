@@ -18,19 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="testCell" rowHeight="60" id="Pot-tv-GEd" customClass="TaskListCell" customModule="Planner" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellTask" rowHeight="60" id="Pot-tv-GEd" customClass="TaskListCell" customModule="Planner" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pot-tv-GEd" id="gvE-Fg-TGS">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="labelDeadline" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRf-cv-Wmp">
-                                            <rect key="frame" x="276" y="3" width="83" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labelCategory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pla-tv-aGK">
                                             <rect key="frame" x="20" y="36.5" width="101" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -52,23 +46,53 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fze-lz-stz">
+                                            <rect key="frame" x="255" y="22.5" width="15" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="15" id="GGu-Cm-o0p"/>
+                                                <constraint firstAttribute="height" constant="15" id="Vl8-Kq-s5j"/>
+                                            </constraints>
+                                            <state key="normal" title="buttonInfo" image="note_not_complete"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0W-4I-ZBG">
+                                            <rect key="frame" x="340" y="17.5" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="3mv-YG-2JC"/>
+                                                <constraint firstAttribute="width" constant="25" id="WGm-l3-HRV"/>
+                                            </constraints>
+                                            <state key="normal" title="buttonComplete" image="check_not_complete"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labelDeadline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRf-cv-Wmp">
+                                            <rect key="frame" x="275" y="22" width="60" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="cp6-WW-f7J"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="dLz-Um-liY" firstAttribute="leading" secondItem="gvE-Fg-TGS" secondAttribute="leading" id="237-xm-iWj"/>
                                         <constraint firstItem="KzE-E3-tSk" firstAttribute="leading" secondItem="dLz-Um-liY" secondAttribute="trailing" constant="10" id="3mz-Ka-Hnz"/>
                                         <constraint firstAttribute="bottom" secondItem="dLz-Um-liY" secondAttribute="bottom" id="50E-Pa-4eU"/>
-                                        <constraint firstAttribute="trailing" secondItem="BRf-cv-Wmp" secondAttribute="trailing" constant="16" id="MfF-gW-EYf"/>
-                                        <constraint firstItem="KzE-E3-tSk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BRf-cv-Wmp" secondAttribute="leading" id="Ut1-Bx-Upd"/>
+                                        <constraint firstItem="BRf-cv-Wmp" firstAttribute="centerY" secondItem="gvE-Fg-TGS" secondAttribute="centerY" id="G32-js-fei"/>
                                         <constraint firstItem="dLz-Um-liY" firstAttribute="top" secondItem="gvE-Fg-TGS" secondAttribute="top" id="VG6-p0-QKb"/>
                                         <constraint firstItem="Pla-tv-aGK" firstAttribute="trailing" secondItem="KzE-E3-tSk" secondAttribute="trailing" id="b8O-2X-K7u"/>
                                         <constraint firstAttribute="bottom" secondItem="Pla-tv-aGK" secondAttribute="bottom" constant="3" id="bpi-C9-Lei"/>
+                                        <constraint firstItem="Fze-lz-stz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KzE-E3-tSk" secondAttribute="trailing" constant="5" id="cZN-6i-Gdz"/>
                                         <constraint firstItem="Pla-tv-aGK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KzE-E3-tSk" secondAttribute="bottom" constant="3" id="kCr-GB-7Hh"/>
-                                        <constraint firstItem="BRf-cv-Wmp" firstAttribute="top" secondItem="gvE-Fg-TGS" secondAttribute="top" constant="3" id="kDG-N7-0eG"/>
+                                        <constraint firstItem="BRf-cv-Wmp" firstAttribute="leading" secondItem="Fze-lz-stz" secondAttribute="trailing" constant="5" id="lLZ-3I-mF7"/>
                                         <constraint firstItem="Pla-tv-aGK" firstAttribute="leading" secondItem="KzE-E3-tSk" secondAttribute="leading" id="mC1-TN-TjT"/>
                                         <constraint firstItem="KzE-E3-tSk" firstAttribute="top" secondItem="gvE-Fg-TGS" secondAttribute="top" constant="3" id="nn2-m2-iiw"/>
+                                        <constraint firstItem="a0W-4I-ZBG" firstAttribute="centerY" secondItem="gvE-Fg-TGS" secondAttribute="centerY" id="oLx-e8-QI3"/>
+                                        <constraint firstItem="a0W-4I-ZBG" firstAttribute="leading" secondItem="BRf-cv-Wmp" secondAttribute="trailing" constant="5" id="tGf-jS-rvJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="a0W-4I-ZBG" secondAttribute="trailing" constant="10" id="vDP-pS-xv5"/>
+                                        <constraint firstItem="Fze-lz-stz" firstAttribute="centerY" secondItem="gvE-Fg-TGS" secondAttribute="centerY" id="ztA-Lr-xH9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="buttonTaskinfo" destination="Fze-lz-stz" id="rlh-nu-1aA"/>
                                     <outlet property="labelDeadline" destination="BRf-cv-Wmp" id="XRl-6C-x4x"/>
                                     <outlet property="labelPriority" destination="dLz-Um-liY" id="l5z-ea-1fs"/>
                                     <outlet property="labelTaskCategory" destination="Pla-tv-aGK" id="c4P-GU-kFd"/>
@@ -104,4 +128,8 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="check_not_complete" width="30" height="30"/>
+        <image name="note_not_complete" width="25" height="29.5"/>
+    </resources>
 </document>
