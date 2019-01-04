@@ -26,17 +26,21 @@ final class ViewController: UIViewController {
     
     private let provider = WeatherProvider()
     private var items: [WeatherModel] = []
+    private var selectedItem: WeatherModel?
+    
+    private var refresh = UIRefreshControl(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.refreshControl = refresh
+        
+        refresh.addTarget(self, action: #selector(onPullToRefresh(sender:)), for: .valueChanged)
         
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    fileprivate func fetchWeatherData() {
         provider.fetchWeather(for: cities) { [weak self] result in
             switch result {
             case .success(let cityWeather):
@@ -47,6 +51,27 @@ final class ViewController: UIViewController {
                 self?.extractCache()
                 self?.showError()
             }
+            self?.refresh.endRefreshing()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchWeatherData()
+        
+    }
+    
+    @objc private func onPullToRefresh(sender: UIRefreshControl) {
+        
+        fetchWeatherData()
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "details" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let item = items[indexPath.row]
         }
     }
     
@@ -65,11 +90,17 @@ final class ViewController: UIViewController {
         if let date = UserDefaults.standard.value(forKey: lastUpdateTimeKey) as? Date {
             
             let formatter = DateFormatter()
-            formatter.dateFormat = "HH:mm"
+            formatter.dateFormat = "yyyy MMMM HH:mm"
             let formattedDate = formatter.string(from: date)
             
-            errorMessageLabel.text = String(format: "Offline mode... Time: %@", formattedDate)
-        }
+            
+//            let localizedString = NSLocalizedString("weatherList.warning.text", comment: "some comment")
+            
+//            errorMessageLabel.text = localizedString
+            
+
+        errorMessageLabel.text = String(format: NSLocalizedString("weatherList.warning.text.format", comment: ""), formattedDate)
+    }
         
         if let weatherData = UserDefaults.standard.data(forKey: itemsKey),
             let model = try? JSONDecoder().decode(BatchWeatherModel.self, from: weatherData) {
@@ -116,9 +147,25 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
         cell.labelTemperature.text = model.displayTemperature
         cell.iconWeatherCondition.updateImage(with: model.iconUrlPath, placeholderImage: nil)
+//        cell.delegate = self
+        cell.clickCompletion = { [weak self] sell in
+            guard let indexPath = self?.tableView.indexPath(for: cell),
+                let item = self?.items[indexPath.row] else { return }
+            self?.selectedItem = item
+            self?.performSegue(withIdentifier: "details", sender: self)
+        }
 //        cell.labelTemperature.text = model.displayTemperature
         return cell
     }
 
+}
+
+extension ViewController: WeatherTableViewCellDelegate {
+    func userDidClickCell(_ cell: WeatherCell) {
+        
+        performSegue(withIdentifier: "details", sender: self)
+    }
+    
+    
 }
 

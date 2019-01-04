@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  WeatherITEA
+
+  Created by Michail Bondarenko on 1/4/19.
+  Copyright © 2019 Michail Bondarenko. All rights reserved.
+*/
+
+"weatherList.warning.text" = "Something went wrong";
+"weatherList.warning.text.format" = "Offline mode... Time: %@";

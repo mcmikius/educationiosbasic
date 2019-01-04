@@ -17,9 +17,11 @@
 		FB21221321CABC7600584356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB21221121CABC7600584356 /* LaunchScreen.storyboard */; };
 		FB21221E21CABC7600584356 /* WeatherITEATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB21221D21CABC7600584356 /* WeatherITEATests.swift */; };
 		FB21222921CABC7600584356 /* WeatherITEAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB21222821CABC7600584356 /* WeatherITEAUITests.swift */; };
+		FB47964021DFCDD200A26FE7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB47964221DFCDD200A26FE7 /* Localizable.strings */; };
 		FB8A48AF21D29DD80006B1A0 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8A48AE21D29DD80006B1A0 /* WeatherModel.swift */; };
 		FB8A48B121D2A59F0006B1A0 /* WeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8A48B021D2A59F0006B1A0 /* WeatherProvider.swift */; };
 		FB8A48B321D2A8AA0006B1A0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8A48B221D2A8AA0006B1A0 /* Result.swift */; };
+		FB8EC1EF21DFDBD6008CDA46 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = FB8EC1EE21DFDBD6008CDA46 /* Localizable.stringsdict */; };
 		FBAC83F421D227BB0007AFC7 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAC83F321D227BB0007AFC7 /* WeatherCell.swift */; };
 		FBBB73C021D3F44300E15E62 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBB73BF21D3F44300E15E62 /* UIImageView+Extensions.swift */; };
 		FBD81E2821D3FC8E0053D298 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD81E2721D3FC8E0053D298 /* City.swift */; };
@@ -66,9 +68,14 @@
 		FB21222421CABC7600584356 /* WeatherITEAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherITEAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB21222821CABC7600584356 /* WeatherITEAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherITEAUITests.swift; sourceTree = "<group>"; };
 		FB21222A21CABC7600584356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB47963E21DFCD7500A26FE7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		FB47963F21DFCD7500A26FE7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FB47964121DFCDD200A26FE7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FB47964321DFCDD300A26FE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB8A48AE21D29DD80006B1A0 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		FB8A48B021D2A59F0006B1A0 /* WeatherProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherProvider.swift; sourceTree = "<group>"; };
 		FB8A48B221D2A8AA0006B1A0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		FB8EC1EE21DFDBD6008CDA46 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		FBAC83F321D227BB0007AFC7 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		FBBB73BF21D3F44300E15E62 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		FBD81E2721D3FC8E0053D298 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -186,6 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				FBBB73BF21D3F44300E15E62 /* UIImageView+Extensions.swift */,
+				FB47964221DFCDD200A26FE7 /* Localizable.strings */,
+				FB8EC1EE21DFDBD6008CDA46 /* Localizable.stringsdict */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -319,7 +328,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB21221321CABC7600584356 /* LaunchScreen.storyboard in Resources */,
+				FB47964021DFCDD200A26FE7 /* Localizable.strings in Resources */,
 				FB21221021CABC7600584356 /* Assets.xcassets in Resources */,
+				FB8EC1EF21DFDBD6008CDA46 /* Localizable.stringsdict in Resources */,
 				FB21220E21CABC7500584356 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +497,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FB21220D21CABC7500584356 /* Base */,
+				FB47963E21DFCD7500A26FE7 /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -494,8 +506,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				FB21221221CABC7600584356 /* Base */,
+				FB47963F21DFCD7500A26FE7 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FB47964221DFCDD200A26FE7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB47964121DFCDD200A26FE7 /* uk */,
+				FB47964321DFCDD300A26FE7 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -505,6 +527,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -566,6 +589,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

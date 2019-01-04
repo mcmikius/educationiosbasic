@@ -1,0 +1,18 @@
+
+/* Class = "UINavigationItem"; title = "Current weather"; ObjectID = "0hY-Ew-Vi3"; */
+"0hY-Ew-Vi3.title" = "Current weather";
+
+/* Class = "UILabel"; text = "errorMessageLabel"; ObjectID = "2sn-bl-Oud"; */
+"2sn-bl-Oud.text" = "errorMessageLabel";
+
+/* Class = "UIViewController"; title = "Current weather"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Current weather";
+
+/* Class = "UILabel"; text = "labelTemperature"; ObjectID = "S9i-eh-HcP"; */
+"S9i-eh-HcP.text" = "labelTemperature";
+
+/* Class = "UILabel"; text = "labelCondition"; ObjectID = "bAE-a5-WU7"; */
+"bAE-a5-WU7.text" = "labelCondition";
+
+/* Class = "UILabel"; text = "labelLocation"; ObjectID = "jw3-iH-G3D"; */
+"jw3-iH-G3D.text" = "labelLocation";
