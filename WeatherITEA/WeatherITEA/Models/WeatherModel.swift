@@ -38,6 +38,16 @@ extension WeatherModel {
         return "\(value)" + "º"
     }
     
+    var displayLocation: String {
+        let nameCity = String(name)
+        let nameCountry = String(sys.country)
+        return "\(nameCity)" + "\(nameCountry)"
+    }
+    var displayCondition: String {
+        let describtionCondition = String(weather.first?.main ?? "")
+        return describtionCondition
+    }
+    
     var iconUrlPath: String {
         guard let iconName = weather.first?.icon else { return "" }
         return "https://openweathermap.org/img/w/\(iconName).png"

@@ -38,6 +38,8 @@ final class ViewController: UIViewController {
         refresh.addTarget(self, action: #selector(onPullToRefresh(sender:)), for: .valueChanged)
         
         tableView.tableFooterView = UIView(frame: .zero)
+        
+        scheduleUpdate()
     }
     
     fileprivate func fetchWeatherData() {
@@ -133,6 +135,14 @@ final class ViewController: UIViewController {
     private func hideError() {
         warningView.isHidden = true
     }
+    
+    private func scheduleUpdate() {
+        let timeInterval = TimeInterval(60*60)
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + timeInterval) {
+            self.fetchWeatherData()
+            self.scheduleUpdate()
+        }
+    }
 
 }
 
@@ -146,6 +156,8 @@ extension ViewController: UITableViewDataSource {
         let model = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
         cell.labelTemperature.text = model.displayTemperature
+        cell.labelLocation.text = model.displayLocation
+        cell.labelCondition.text = model.displayCondition
         cell.iconWeatherCondition.updateImage(with: model.iconUrlPath, placeholderImage: nil)
 //        cell.delegate = self
         cell.clickCompletion = { [weak self] sell in
