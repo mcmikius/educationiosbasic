@@ -23,6 +23,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var warningView: UIView!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     private let provider = WeatherProvider()
     private var items: [WeatherModel] = []
@@ -33,6 +34,22 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(forName: Notification.Name.NSCalendarDayChanged, object: self, queue: nil, using: { [weak self] notification in
+            
+        })
+        
+        tableView.observe(\.isHidden ) { [weak self] (table, change) in
+            
+            switch change.kind {
+            case .setting:
+                print("set")
+                print(change.newValue)
+            default:
+                break
+            }
+            
+        }
+        
         tableView.refreshControl = refresh
         
         refresh.addTarget(self, action: #selector(onPullToRefresh(sender:)), for: .valueChanged)
@@ -42,16 +59,18 @@ final class ViewController: UIViewController {
         scheduleUpdate()
     }
     
+    
+    
     fileprivate func fetchWeatherData() {
         provider.fetchWeather(for: cities) { [weak self] result in
             switch result {
             case .success(let cityWeather):
                 self?.updateItems(with: cityWeather)
-                self?.hideError()
+                self?.toggleWarningView(show: false)
                 self?.cacheItems(model: cityWeather)
             case .error(_):
                 self?.extractCache()
-                self?.showError()
+                self?.toggleWarningView(show: true)
             }
             self?.refresh.endRefreshing()
         }
@@ -63,6 +82,13 @@ final class ViewController: UIViewController {
         fetchWeatherData()
         
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        tableView.removeObserver(self, forKeyPath: "isHidden")
+    }
+    
+    
     
     @objc private func onPullToRefresh(sender: UIRefreshControl) {
         
@@ -128,12 +154,54 @@ final class ViewController: UIViewController {
         tableView.insertRows(at: indexPath, with: .fade)
     }
     
-    private func showError() {
-        warningView.isHidden = false
+    private func toggleWarningView(show: Bool) {
+        /*
+        UIView.animate(withDuration: 0.25, animations: {
+            self.warningView.alpha = show ? 1 : 0
+            let height = self.warningView.frame.height
+            self.topConstraint.constant = show ? 0 : -height
+            self.view.layoutIfNeeded()
+        })
+ 
+        
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.repeat, .autoreverse], animations: {
+            //self.warningView.alpha = show ? 1 : 0
+            let value: CGFloat = show ? 1 : 0
+            //self.warningView.transform = show ? .identity : CGAffineTransform(rotationAngle: 90)
+            
+            self.warningView.alpha = value
+        }, completion: { complete in
+            guard complete else { return }
+            
+            UIView.animate(withDuration: 0.25) {
+                let height = self.warningView.frame.height
+                self.topConstraint.constant = show ? 0 : -height
+                self.view.layoutIfNeeded()
+            }
+ 
+        })
+ */
+//        animator.startAnimation()
+//        animator.addAnimations { [weak self] in
+//            self?.view.alpha = self?.view.alpha == 0 ? 1 : 0
+//        }
+        animator.startAnimation()
+        animator.fractionComplete = 0.5
+        
+        
     }
+ 
+    lazy var animator: UIViewPropertyAnimator = {
+        return UIViewPropertyAnimator(duration: 0.25, dampingRatio: 1) { [weak self] in
+            self?.animateWarningView()
+        }
+    }()
     
-    private func hideError() {
-        warningView.isHidden = true
+    private func animateWarningView() {
+        warningView.alpha = warningView.alpha == 0 ? 1 : 0
+        let height = warningView.frame.height
+        topConstraint.constant = topConstraint.constant == 0 ? -height : 0
+        view.layoutIfNeeded()
     }
     
     private func scheduleUpdate() {

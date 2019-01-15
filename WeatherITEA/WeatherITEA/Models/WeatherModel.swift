@@ -41,7 +41,7 @@ extension WeatherModel {
     var displayLocation: String {
         let nameCity = String(name)
         let nameCountry = String(sys.country)
-        return "\(nameCity)" + "\(nameCountry)"
+        return "\(nameCity)" + " \(nameCountry)"
     }
     var displayCondition: String {
         let describtionCondition = String(weather.first?.main ?? "")

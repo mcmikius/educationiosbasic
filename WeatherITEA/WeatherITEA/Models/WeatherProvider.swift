@@ -38,7 +38,7 @@ struct WeatherProvider {
             completion(.success(result))
     }
         
-        
+ /*
     func fetchSingleCityWeather(completion: @escaping (Result<WeatherModel>) -> Void) {
         let path = "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22"
         Alamofire.request(path).validate(statusCode: 200..<300).responseJSON { result in
@@ -75,6 +75,7 @@ struct WeatherProvider {
         completion(.success(result))
  */
     }
+ */
 }
 
 }
