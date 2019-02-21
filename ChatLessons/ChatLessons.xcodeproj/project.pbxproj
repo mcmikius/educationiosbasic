@@ -17,6 +17,7 @@
 		FB62BABE221B2A6800D99656 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB62BABD221B2A6800D99656 /* UserModel.swift */; };
 		FB62BAC0221B2F1D00D99656 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB62BABF221B2F1D00D99656 /* UserProvider.swift */; };
 		FB62BAC2221B3A1F00D99656 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB62BAC1221B3A1F00D99656 /* UserTableViewCell.swift */; };
+		FB7095E0221EB3870013B1D8 /* DialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7095DF221EB3870013B1D8 /* DialogViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FB62BABD221B2A6800D99656 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		FB62BABF221B2F1D00D99656 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		FB62BAC1221B3A1F00D99656 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		FB7095DF221EB3870013B1D8 /* DialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				FB62BABB221B20C200D99656 /* ViewModel.swift */,
 				FB62BABF221B2F1D00D99656 /* UserProvider.swift */,
 				FB62BAA9221B1E5600D99656 /* ViewController.swift */,
+				FB7095DF221EB3870013B1D8 /* DialogViewController.swift */,
 				FB62BAC1221B3A1F00D99656 /* UserTableViewCell.swift */,
 				FB62BAAB221B1E5600D99656 /* Main.storyboard */,
 				FB62BAAE221B1E5800D99656 /* Assets.xcassets */,
@@ -154,6 +157,7 @@
 				FB62BAC0221B2F1D00D99656 /* UserProvider.swift in Sources */,
 				FB62BAC2221B3A1F00D99656 /* UserTableViewCell.swift in Sources */,
 				FB62BABA221B209D00D99656 /* Router.swift in Sources */,
+				FB7095E0221EB3870013B1D8 /* DialogViewController.swift in Sources */,
 				FB62BABC221B20C200D99656 /* ViewModel.swift in Sources */,
 				FB62BABE221B2A6800D99656 /* UserModel.swift in Sources */,
 				FB62BAA8221B1E5600D99656 /* AppDelegate.swift in Sources */,
