@@ -1,0 +1,6 @@
+target 'ChatLessons' do
+  use_frameworks!
+
+  pod 'Bond'
+
+end
