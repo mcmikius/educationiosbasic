@@ -35,7 +35,7 @@ class DialogViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.messagesArray.append("Test 1")
         self.messagesArray.append("Test 2")
         self.messagesArray.append("Test 3")
-    }
+    } 
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
