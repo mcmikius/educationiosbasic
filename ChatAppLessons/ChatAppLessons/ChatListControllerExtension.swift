@@ -13,9 +13,9 @@ import CoreData
 extension ChatListTableViewController {
     
     func clearData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
         
-        if let context = appDelegate.persistentContainer.viewContext {
+        if let context = appDelegate?.persistentContainer.viewContext {
             
             do {
                 
@@ -24,10 +24,10 @@ extension ChatListTableViewController {
                 for entityName in entityNames {
                     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
                     
-                    let objects = try(context.executeFetchRequest(fetchRequest)) as? [NSManagedObject]
+                    let objects = try(context.fetch(fetchRequest)) as? [NSManagedObject]
                     
                     for object in objects! {
-                        context.deleteObject(object)
+                        context.delete(object)
                     }
                 }
                 
@@ -45,32 +45,34 @@ extension ChatListTableViewController {
         
         clearData()
         
-        let delegate = UIApplication.shared.delegate as? AppDelegate
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
         
-        if let context = delegate?.managedObjectContext {
+        if let context = appDelegate?.persistentContainer.viewContext {
             
-            let mark = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: context) as! Friend
-            mark.name = "Mark Zuckerberg"
+            let mark = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User
+            mark.firstName = "Mark"
+            mark.lastName = "Zuckerberg"
             mark.profileImageName = "zuckprofile"
             
-            let message = NSEntityDescription.insertNewObjectForEntityForName("Message", inManagedObjectContext: context) as! Message
-            message.friend = mark
+            let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+            message.user = mark
             message.text = "Hello, my name is Mark. Nice to meet you..."
             message.date = Date()
             
-            let steve = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: context) as! Friend
-            steve.name = "Steve Jobs"
+            let steve = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User
+            steve.firstName = "Steve"
+            steve.lastName = "Jobs"
             steve.profileImageName = "steve_profile"
             
-            let messageSteve = NSEntityDescription.insertNewObjectForEntityForName("Message", inManagedObjectContext: context) as! Message
-            messageSteve.friend = steve
+            let messageSteve = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+            messageSteve.user = steve
             messageSteve.text = "Apple creates great iOS Devices for the world..."
             messageSteve.date = Date()
             
             do {
                 try(context.save())
-            } catch let err {
-                print(err)
+            } catch let error {
+                print(error)
             }
         }
         
@@ -79,18 +81,13 @@ extension ChatListTableViewController {
     }
     
     func loadData() {
-        let delegate = UIApplication.shared.delegate as? AppDelegate
-        
-        if let context = delegate?.managedObjectContext {
-            
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        if let context = appDelegate?.persistentContainer.viewContext {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
-            
             do {
-                
-                messages = try(context.executeFetchRequest(fetchRequest)) as? [Message]
-                
-            } catch let err {
-                print(err)
+                messages = try(context.fetch(fetchRequest)) as! [Message]
+            } catch let error {
+                print(error)
             }
             
         }

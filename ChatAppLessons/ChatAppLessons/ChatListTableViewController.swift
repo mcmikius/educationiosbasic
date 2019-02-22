@@ -11,8 +11,7 @@ import UIKit
 class ChatListTableViewController: UITableViewController {
     
     private let chatListCell = "ChatListCell"
-    
-    var messages: [Message] = []
+    var messages: [Message]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +35,19 @@ class ChatListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        
-        return messages.count
+        if let count = messages?.count {
+            return count
+        }
+        return 0
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: chatListCell, for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: chatListCell, for: indexPath) as! ChatListTableViewCell
+        
+        if let message = messages?[indexPath.item] {
+            cell.message = message
+        }
 
         return cell
     }

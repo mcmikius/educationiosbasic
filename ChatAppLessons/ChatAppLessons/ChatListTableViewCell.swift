@@ -12,7 +12,7 @@ class ChatListTableViewCell: UITableViewCell {
     
     var message: Message? {
         didSet {
-            fullNameLabel.text = message?.user?.lastName
+            fullNameLabel.text = (message?.user?.firstName)! + " " + (message?.user?.lastName)!
             if let profileImageName = message?.user?.profileImageName {
                 profileImageView.image = UIImage(named: profileImageName)
             }
