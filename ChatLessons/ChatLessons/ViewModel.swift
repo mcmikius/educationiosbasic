@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Bond
 
 protocol TitleUpdate {
     func updateTitle()
@@ -15,18 +16,11 @@ protocol TitleUpdate {
 
 final class ViewModel {
     private let provider: UserProvider
+    let observableTitle: Observable<String> = Observable("Messages")
     
-    var title: String = "Messages" {
-        didSet {
-            titleObservers.forEach {
-                $0.updateTitle()
-            }
-        }
-    }
-    
-    var titleObservers: [TitleUpdate] = []
     
     private(set) var items: [UserViewObject] = []
+    let observableItems: MutableObservableArray<UserViewObject> = MutableObservableArray([])
     
     init(provider: UserProvider) {
         self.provider = provider
@@ -34,10 +28,14 @@ final class ViewModel {
     
     func update() {
         provider.getUsers { [weak self] users in
-            self?.items = users.map { UserViewObject(raw: $0) }
+            //            self?.items = users.map { UserViewObject(raw: $0) }
+            self?.observableItems.insert(contentsOf: users.map{ UserViewObject(raw: $0) }, at: 0)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.observableTitle.value = "new title"
         }
     }
-   
+    
 }
 
 struct UserViewObject {
