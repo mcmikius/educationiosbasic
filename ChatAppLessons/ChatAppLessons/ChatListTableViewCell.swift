@@ -12,7 +12,7 @@ class ChatListTableViewCell: UITableViewCell {
     
     var message: Message? {
         didSet {
-            fullNameLabel.text = (message?.user?.firstName)! + " " + (message?.user?.lastName)!
+            fullNameLabel.text = message?.user?.name
             if let profileImageName = message?.user?.profileImageName {
                 profileImageView.image = UIImage(named: profileImageName)
             }
@@ -20,6 +20,16 @@ class ChatListTableViewCell: UITableViewCell {
             if let date = message?.date {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "h:mm a"
+                let elapsedTimeInSeconds = Date().timeIntervalSince(date)
+                
+                let secondInDays: TimeInterval = 60 * 60 * 24
+                
+                if elapsedTimeInSeconds > 7 * secondInDays {
+                    dateFormatter.dateFormat = "MM/dd/yy"
+                } else if elapsedTimeInSeconds > secondInDays {
+                    dateFormatter.dateFormat = "EEE"
+                }
+                
                 timeLabel.text = dateFormatter.string(from: date)
             }
         }

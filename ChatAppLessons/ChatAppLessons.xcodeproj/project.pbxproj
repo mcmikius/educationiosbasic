@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB61F5682220015F00082929 /* ChatRoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61F5672220015F00082929 /* ChatRoomTableViewController.swift */; };
+		FB61F56A2220026A00082929 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61F5692220026A00082929 /* MessageTableViewCell.swift */; };
 		FB7095EE221ECCE40013B1D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7095ED221ECCE40013B1D8 /* AppDelegate.swift */; };
 		FB7095F3221ECCE40013B1D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB7095F1221ECCE40013B1D8 /* Main.storyboard */; };
 		FB7095F6221ECCE40013B1D8 /* ChatAppLessons.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB7095F4221ECCE40013B1D8 /* ChatAppLessons.xcdatamodeld */; };
@@ -14,10 +16,11 @@
 		FB7095FB221ECCE60013B1D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB7095F9221ECCE60013B1D8 /* LaunchScreen.storyboard */; };
 		FB709603221ED0E40013B1D8 /* ChatListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB709602221ED0E40013B1D8 /* ChatListTableViewController.swift */; };
 		FB709609221ED3C10013B1D8 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB709608221ED3C10013B1D8 /* ChatListTableViewCell.swift */; };
-		FB709611221F0D4E0013B1D8 /* ChatListControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB709610221F0D4E0013B1D8 /* ChatListControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB61F5672220015F00082929 /* ChatRoomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewController.swift; sourceTree = "<group>"; };
+		FB61F5692220026A00082929 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		FB7095EA221ECCE40013B1D8 /* ChatAppLessons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatAppLessons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7095ED221ECCE40013B1D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB7095F2221ECCE40013B1D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -27,7 +30,6 @@
 		FB7095FC221ECCE60013B1D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB709602221ED0E40013B1D8 /* ChatListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewController.swift; sourceTree = "<group>"; };
 		FB709608221ED3C10013B1D8 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
-		FB709610221F0D4E0013B1D8 /* ChatListControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +70,8 @@
 				FB7095F9221ECCE60013B1D8 /* LaunchScreen.storyboard */,
 				FB7095FC221ECCE60013B1D8 /* Info.plist */,
 				FB7095F4221ECCE40013B1D8 /* ChatAppLessons.xcdatamodeld */,
-				FB709610221F0D4E0013B1D8 /* ChatListControllerExtension.swift */,
+				FB61F5672220015F00082929 /* ChatRoomTableViewController.swift */,
+				FB61F5692220026A00082929 /* MessageTableViewCell.swift */,
 			);
 			path = ChatAppLessons;
 			sourceTree = "<group>";
@@ -144,8 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB61F56A2220026A00082929 /* MessageTableViewCell.swift in Sources */,
+				FB61F5682220015F00082929 /* ChatRoomTableViewController.swift in Sources */,
 				FB7095EE221ECCE40013B1D8 /* AppDelegate.swift in Sources */,
-				FB709611221F0D4E0013B1D8 /* ChatListControllerExtension.swift in Sources */,
 				FB709609221ED3C10013B1D8 /* ChatListTableViewCell.swift in Sources */,
 				FB709603221ED0E40013B1D8 /* ChatListTableViewController.swift in Sources */,
 				FB7095F6221ECCE40013B1D8 /* ChatAppLessons.xcdatamodeld in Sources */,
