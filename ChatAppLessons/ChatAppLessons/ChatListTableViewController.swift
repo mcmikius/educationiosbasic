@@ -52,9 +52,7 @@ class ChatListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = ChatRoomTableViewController()
-        controller.user = messages?[indexPath.row].user
-        navigationController?.pushViewController(controller, animated: true)
+        self.performSegue(withIdentifier: "ShowChatRoom", sender: self)
     }
     
     
@@ -93,15 +91,14 @@ class ChatListTableViewController: UITableViewController {
      }
      */
     
-    /*
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+        guard let viewController = segue.destination as? ChatRoomTableViewController else { return }
      }
-     */
+
     
 }
 

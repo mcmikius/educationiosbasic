@@ -9,12 +9,14 @@
 import Foundation
 import UIKit
 import Bond
+import ReactiveKit
 
 protocol TitleUpdate {
     func updateTitle()
 }
 
 final class ViewModel {
+    private let bag = DisposeBag()
     private let provider: UserProvider
     let observableTitle: Observable<String> = Observable("Messages")
     
@@ -36,12 +38,40 @@ final class ViewModel {
         }
     }
     
+    func makeDialogViewModel() -> DialogViewModel {
+        return DialogViewModel()
+    }
+    
+    func updateMessages(for userViewModel: UserViewObject) {
+        combineLatest(provider.getMessages(for: userViewModel.userId), provider.getMessages(for: userViewModel.userId)).observe { (result) in
+            print(result)
+        }
+        provider.getMessages(for: userViewModel.userId)
+            .executeOn(.global())
+            .first()
+            .observeOn(.main)
+            .observe { [weak self] event in
+                switch event {
+                case .completed:
+                    break
+                case .next(let messages):
+                    //save messages
+                    //raw model objects => serialize viewModel layer objects
+                    print(messages)
+                case .failed(let error):
+                    //handle error
+                    print(error)
+                }
+            }.dispose(in: bag)
+    }
+    
 }
 
 struct UserViewObject {
     
     private let raw: UserModel
     
+    var userId: String { return "id" }
     var name: String { return raw.name }
     var message: String { return raw.lastMessage }
     var iconUrl: String { return raw.iconUrl }

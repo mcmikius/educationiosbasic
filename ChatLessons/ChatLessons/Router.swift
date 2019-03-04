@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct Router {
     
+    func showDialogViewController(for viewController: ViewController) {
+        let dialogViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: DialogViewController.self)) as! DialogViewController
+        dialogViewController.viewModel = viewController.viewModel.makeDialogViewModel()
+        viewController.navigationController?.show(dialogViewController, sender: viewController)
+    }
 }

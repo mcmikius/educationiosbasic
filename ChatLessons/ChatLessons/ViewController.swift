@@ -9,7 +9,7 @@
 import UIKit
 import Bond
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate {
     
     
     
@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: ViewModel!
+    var router = Router()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +35,28 @@ class ViewController: UIViewController {
             cell.viewObject = obj
             return cell
         }
+        tableView.reactive.selectedRowIndexPath.observeNext { [weak self] indexPath in
+            guard let userViewModel = self?.viewModel.observableItems.array[indexPath.row] else {
+                assertionFailure(); return
+            }
+            //   self?.performSegue(withIdentifier: "segue", sender: self)
+            self?.viewModel.updateMessages(for: userViewModel)
+            //   self?.router.showDialogViewController(for: self!)
+            }.dispose(in: bag)
+        
+        
         DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
             self.viewModel.update()
         }
     }
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.router.showDialogViewController(for: self)
+    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let viewController = segue.destination as? DialogViewController {
+//            viewController.viewModel = viewModel.makeDialogViewModel()
+//        } 
+//    }
 }
 
 //extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -58,3 +75,4 @@ class ViewController: UIViewController {
 //
 //
 //}
+

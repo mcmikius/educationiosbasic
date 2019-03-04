@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ReactiveKit
 struct UserProvider {
     func getUsers(_ completion: @escaping ([UserModel]) -> Void) {
         
@@ -16,5 +17,20 @@ struct UserProvider {
         
         let result =  [UserModel(), UserModel()]
         completion(result)
+    }
+    
+    func getMessages(for userId: String) -> Signal<[Message], NSError> {
+        return Signal { observer in
+            
+            observer.next([])
+            observer.failed(NSError(domain: "debug", code: 400, userInfo: nil))
+            observer.completed()
+            
+            return BlockDisposable { }
+        }
+    }
+    
+    func post(message: Message) {
+        
     }
 }

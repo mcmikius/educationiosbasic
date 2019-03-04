@@ -15,9 +15,10 @@ class DialogViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var dockViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var sendButton: UIButton!
-    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var messagesTableView: UITableView!
     
+    var viewModel: DialogViewModel!
     var messagesArray:[String] = [String]()
     
     override func viewDidLoad() {
@@ -25,8 +26,6 @@ class DialogViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         self.messagesTableView.delegate = self
         self.messagesTableView.dataSource = self
-        
-        self.messageTextField.delegate = self
         
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tableViewTapped")
         self.messagesTableView.addGestureRecognizer(tapGesture)
@@ -42,11 +41,11 @@ class DialogViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
-        self.messageTextField.endEditing(true)
+        self.messageTextView.endEditing(true)
     }
     
     func tableViewTapped() {
-        self.messageTextField.endEditing(true)
+        self.messageTextView.endEditing(true)
     }
     
     // MARK: TextField Delegate Methods

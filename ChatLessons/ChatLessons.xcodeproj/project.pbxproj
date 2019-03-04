@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CA71CDD2FB132F437DD7705C /* Pods_ChatLessons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4365D8683E2BD233A699D118 /* Pods_ChatLessons.framework */; };
+		FB100F5722247675004559D2 /* DialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB100F5622247675004559D2 /* DialogViewModel.swift */; };
+		FB1E5BDF222DADE6008CCE43 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1E5BDE222DADE6008CCE43 /* Message.swift */; };
 		FB62BAA8221B1E5600D99656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB62BAA7221B1E5600D99656 /* AppDelegate.swift */; };
 		FB62BAAA221B1E5600D99656 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB62BAA9221B1E5600D99656 /* ViewController.swift */; };
 		FB62BAAD221B1E5600D99656 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB62BAAB221B1E5600D99656 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 		3F3AB29C475E32E5529B3F4C /* Pods-ChatLessons.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLessons.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatLessons/Pods-ChatLessons.debug.xcconfig"; sourceTree = "<group>"; };
 		4365D8683E2BD233A699D118 /* Pods_ChatLessons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatLessons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45A32E70FC31C6B120A46AE /* Pods-ChatLessons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLessons.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatLessons/Pods-ChatLessons.release.xcconfig"; sourceTree = "<group>"; };
+		FB100F5622247675004559D2 /* DialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewModel.swift; sourceTree = "<group>"; };
+		FB1E5BDE222DADE6008CCE43 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FB62BAA4221B1E5600D99656 /* ChatLessons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatLessons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB62BAA7221B1E5600D99656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB62BAA9221B1E5600D99656 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,9 +95,11 @@
 			isa = PBXGroup;
 			children = (
 				FB62BAA7221B1E5600D99656 /* AppDelegate.swift */,
-				FB62BABD221B2A6800D99656 /* UserModel.swift */,
 				FB62BAB9221B209D00D99656 /* Router.swift */,
 				FB62BABB221B20C200D99656 /* ViewModel.swift */,
+				FB100F5622247675004559D2 /* DialogViewModel.swift */,
+				FB62BABD221B2A6800D99656 /* UserModel.swift */,
+				FB1E5BDE222DADE6008CCE43 /* Message.swift */,
 				FB62BABF221B2F1D00D99656 /* UserProvider.swift */,
 				FB62BAA9221B1E5600D99656 /* ViewController.swift */,
 				FB7095DF221EB3870013B1D8 /* DialogViewController.swift */,
@@ -236,6 +242,8 @@
 				FB62BABA221B209D00D99656 /* Router.swift in Sources */,
 				FB7095E0221EB3870013B1D8 /* DialogViewController.swift in Sources */,
 				FB62BABC221B20C200D99656 /* ViewModel.swift in Sources */,
+				FB100F5722247675004559D2 /* DialogViewModel.swift in Sources */,
+				FB1E5BDF222DADE6008CCE43 /* Message.swift in Sources */,
 				FB62BABE221B2A6800D99656 /* UserModel.swift in Sources */,
 				FB62BAA8221B1E5600D99656 /* AppDelegate.swift in Sources */,
 			);
