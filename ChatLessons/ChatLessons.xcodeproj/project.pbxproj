@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		CA71CDD2FB132F437DD7705C /* Pods_ChatLessons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4365D8683E2BD233A699D118 /* Pods_ChatLessons.framework */; };
 		FB100F5722247675004559D2 /* DialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB100F5622247675004559D2 /* DialogViewModel.swift */; };
+		FB12F1382236DCA80018B475 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB12F1362236DCA80018B475 /* DataModel.xcdatamodeld */; };
+		FB12F13D2236DD610018B475 /* CDMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB12F1392236DD610018B475 /* CDMessage+CoreDataClass.swift */; };
+		FB12F13E2236DD610018B475 /* CDMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB12F13A2236DD610018B475 /* CDMessage+CoreDataProperties.swift */; };
+		FB12F13F2236DD610018B475 /* CDUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB12F13B2236DD610018B475 /* CDUser+CoreDataClass.swift */; };
+		FB12F1402236DD610018B475 /* CDUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB12F13C2236DD610018B475 /* CDUser+CoreDataProperties.swift */; };
+		FB12F1422236E3010018B475 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB12F1412236E3010018B475 /* CoreDataStack.swift */; };
 		FB1E5BDF222DADE6008CCE43 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1E5BDE222DADE6008CCE43 /* Message.swift */; };
 		FB62BAA8221B1E5600D99656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB62BAA7221B1E5600D99656 /* AppDelegate.swift */; };
 		FB62BAAA221B1E5600D99656 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB62BAA9221B1E5600D99656 /* ViewController.swift */; };
@@ -28,6 +34,12 @@
 		4365D8683E2BD233A699D118 /* Pods_ChatLessons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatLessons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45A32E70FC31C6B120A46AE /* Pods-ChatLessons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLessons.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatLessons/Pods-ChatLessons.release.xcconfig"; sourceTree = "<group>"; };
 		FB100F5622247675004559D2 /* DialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewModel.swift; sourceTree = "<group>"; };
+		FB12F1372236DCA80018B475 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		FB12F1392236DD610018B475 /* CDMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMessage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FB12F13A2236DD610018B475 /* CDMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMessage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FB12F13B2236DD610018B475 /* CDUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FB12F13C2236DD610018B475 /* CDUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FB12F1412236E3010018B475 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FB1E5BDE222DADE6008CCE43 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FB62BAA4221B1E5600D99656 /* ChatLessons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatLessons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB62BAA7221B1E5600D99656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +106,12 @@
 		FB62BAA6221B1E5600D99656 /* ChatLessons */ = {
 			isa = PBXGroup;
 			children = (
+				FB12F1392236DD610018B475 /* CDMessage+CoreDataClass.swift */,
+				FB12F13A2236DD610018B475 /* CDMessage+CoreDataProperties.swift */,
+				FB12F13B2236DD610018B475 /* CDUser+CoreDataClass.swift */,
+				FB12F13C2236DD610018B475 /* CDUser+CoreDataProperties.swift */,
 				FB62BAA7221B1E5600D99656 /* AppDelegate.swift */,
+				FB12F1412236E3010018B475 /* CoreDataStack.swift */,
 				FB62BAB9221B209D00D99656 /* Router.swift */,
 				FB62BABB221B20C200D99656 /* ViewModel.swift */,
 				FB100F5622247675004559D2 /* DialogViewModel.swift */,
@@ -108,6 +125,7 @@
 				FB62BAAE221B1E5800D99656 /* Assets.xcassets */,
 				FB62BAB0221B1E5800D99656 /* LaunchScreen.storyboard */,
 				FB62BAB3221B1E5800D99656 /* Info.plist */,
+				FB12F1362236DCA80018B475 /* DataModel.xcdatamodeld */,
 			);
 			path = ChatLessons;
 			sourceTree = "<group>";
@@ -236,13 +254,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB12F1382236DCA80018B475 /* DataModel.xcdatamodeld in Sources */,
 				FB62BAAA221B1E5600D99656 /* ViewController.swift in Sources */,
 				FB62BAC0221B2F1D00D99656 /* UserProvider.swift in Sources */,
+				FB12F13F2236DD610018B475 /* CDUser+CoreDataClass.swift in Sources */,
 				FB62BAC2221B3A1F00D99656 /* UserTableViewCell.swift in Sources */,
 				FB62BABA221B209D00D99656 /* Router.swift in Sources */,
+				FB12F1402236DD610018B475 /* CDUser+CoreDataProperties.swift in Sources */,
+				FB12F1422236E3010018B475 /* CoreDataStack.swift in Sources */,
 				FB7095E0221EB3870013B1D8 /* DialogViewController.swift in Sources */,
 				FB62BABC221B20C200D99656 /* ViewModel.swift in Sources */,
+				FB12F13E2236DD610018B475 /* CDMessage+CoreDataProperties.swift in Sources */,
 				FB100F5722247675004559D2 /* DialogViewModel.swift in Sources */,
+				FB12F13D2236DD610018B475 /* CDMessage+CoreDataClass.swift in Sources */,
 				FB1E5BDF222DADE6008CCE43 /* Message.swift in Sources */,
 				FB62BABE221B2A6800D99656 /* UserModel.swift in Sources */,
 				FB62BAA8221B1E5600D99656 /* AppDelegate.swift in Sources */,
@@ -447,6 +471,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FB12F1362236DCA80018B475 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FB12F1372236DCA80018B475 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = FB12F1372236DCA80018B475 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FB62BA9C221B1E5600D99656 /* Project object */;
 }

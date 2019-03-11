@@ -21,18 +21,29 @@ final class ViewModel {
     let observableTitle: Observable<String> = Observable("Messages")
     
     
-    private(set) var items: [UserViewObject] = []
-    let observableItems: MutableObservableArray<UserViewObject> = MutableObservableArray([])
+    private(set) var items: [UserViewObjectProtocol] = []
+    let observableItems: MutableObservableArray<UserViewObjectProtocol> = MutableObservableArray([])
     
     init(provider: UserProvider) {
         self.provider = provider
     }
     
     func update() {
-        provider.getUsers { [weak self] users in
-            //            self?.items = users.map { UserViewObject(raw: $0) }
-            self?.observableItems.insert(contentsOf: users.map{ UserViewObject(raw: $0) }, at: 0)
+        if provider.shouldFetchFromAPI() {
+            provider.getUsers { [weak self] users in
+                //            self?.items = users.map { UserViewObject(raw: $0) }
+                let userObjects = users.map { UserViewObjectStruct(raw: $0) }
+                self?.observableItems.insert(contentsOf: userObjects, at: 0)
+                self?.provider.save(users: userObjects)
+            }
+        } else {
+            guard let cdUsers = provider.getCDUser() else { return }
+            let userObjects = cdUsers.map {
+                return CDUserViewObject(raw: $0)
+            }
+            observableItems.insert(contentsOf: userObjects, at: 0)
         }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.observableTitle.value = "new title"
         }
@@ -42,7 +53,7 @@ final class ViewModel {
         return DialogViewModel()
     }
     
-    func updateMessages(for userViewModel: UserViewObject) {
+    func updateMessages(for userViewModel: UserViewObjectProtocol) {
         combineLatest(provider.getMessages(for: userViewModel.userId), provider.getMessages(for: userViewModel.userId)).observe { (result) in
             print(result)
         }
@@ -67,7 +78,36 @@ final class ViewModel {
     
 }
 
-struct UserViewObject {
+protocol UserViewObjectProtocol {
+    var userId: String { get }
+    var name: String { get }
+    var message: String { get }
+    var iconUrl: String { get }
+    
+    var nameColor: UIColor { get }
+    var nameFont: UIFont { get }
+}
+
+struct CDUserViewObject: UserViewObjectProtocol {
+    var userId: String = ""
+    
+    var name: String = ""
+    
+    var message: String = ""
+    
+    var iconUrl: String
+    
+    var nameColor: UIColor = .red
+    
+    var nameFont: UIFont = UIFont.systemFont(ofSize: 30)
+    
+    init(raw: CDUser) {
+        name = raw.name ?? ""
+        iconUrl = raw.iconURL ?? ""
+    }
+}
+
+struct UserViewObjectStruct: UserViewObjectProtocol {
     
     private let raw: UserModel
     
@@ -76,7 +116,7 @@ struct UserViewObject {
     var message: String { return raw.lastMessage }
     var iconUrl: String { return raw.iconUrl }
     var nameColor: UIColor = .red
-    var nameFont: UIFont = UIFont.systemFont(ofSize: 20)
+    var nameFont: UIFont = UIFont.systemFont(ofSize: 30)
     init(raw: UserModel) {
         self.raw = raw
     }

@@ -10,7 +10,7 @@ import UIKit
 
 final class UserTableViewCell: UITableViewCell {
 
-    var viewObject: UserViewObject! {
+    var viewObject: UserViewObjectProtocol! {
         didSet {
             textLabel?.text = viewObject.name
             textLabel?.textColor = viewObject.nameColor
