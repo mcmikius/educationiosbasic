@@ -8,38 +8,26 @@
 
 import Foundation
 import ReactiveKit
-import CoreData
 
-struct UserProvider {
+struct UserProvider: UserPersistentStoraging {
     
-    private let coreData: CoreDataStack!
-    
-    init(coreDataStack: CoreDataStack) {
-        self.coreData = coreDataStack
+    private let storage: UserPersistentStoraging
+    init(persistentStorage: UserPersistentStoraging) {
+        storage = persistentStorage
     }
     
     func shouldFetchFromAPI() -> Bool {
         
-        return false
+        return storage.shouldFetchFromAPI()
     }
     
     func save(users: [UserViewObjectProtocol]) {
-        let cdUsers: [NSManagedObject] = users.map {
-            let entity = NSEntityDescription.entity(forEntityName: "CDUser", in: coreData.context)!
-            let object = NSManagedObject.init(entity: entity, insertInto: coreData.context)
-            object.setValue($0.iconUrl, forKey: "iconURL")
-            object.setValue($0.name, forKey: "name")
-            return object
-        }
-        print(cdUsers)
-        coreData.saveContext()
+        storage.save(users: users)
     }
     
-    func getCDUser() -> [CDUser]? {
+    func getCDUser() -> [UserModelStoraging]? {
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: CDUser.self))
-        let users = try? coreData.context.fetch(request) as? [CDUser]
-        return users ?? nil
+        return storage.getCDUser()
     }
     
     func getUsers(_ completion: @escaping ([UserModel]) -> Void) {

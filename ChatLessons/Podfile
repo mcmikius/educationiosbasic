@@ -2,5 +2,6 @@ target 'ChatLessons' do
   use_frameworks!
 
   pod 'Bond'
+  pod 'RealmSwift'
 
 end

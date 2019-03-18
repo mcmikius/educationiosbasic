@@ -27,7 +27,7 @@ class DialogViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.messagesTableView.delegate = self
         self.messagesTableView.dataSource = self
         
-        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tableViewTapped")
+        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("tableViewTapped")))
         self.messagesTableView.addGestureRecognizer(tapGesture)
         
         //Sample data

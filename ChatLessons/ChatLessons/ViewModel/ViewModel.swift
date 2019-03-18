@@ -82,8 +82,7 @@ protocol UserViewObjectProtocol {
     var userId: String { get }
     var name: String { get }
     var message: String { get }
-    var iconUrl: String { get }
-    
+    var iconURL: String { get }
     var nameColor: UIColor { get }
     var nameFont: UIFont { get }
 }
@@ -95,15 +94,15 @@ struct CDUserViewObject: UserViewObjectProtocol {
     
     var message: String = ""
     
-    var iconUrl: String
+    var iconURL: String
     
     var nameColor: UIColor = .red
     
     var nameFont: UIFont = UIFont.systemFont(ofSize: 30)
     
-    init(raw: CDUser) {
+    init(raw: UserModelStoraging) {
         name = raw.name ?? ""
-        iconUrl = raw.iconURL ?? ""
+        iconURL = raw.iconURL ?? ""
     }
 }
 
@@ -114,7 +113,7 @@ struct UserViewObjectStruct: UserViewObjectProtocol {
     var userId: String { return "id" }
     var name: String { return raw.name }
     var message: String { return raw.lastMessage }
-    var iconUrl: String { return raw.iconUrl }
+    var iconURL: String { return raw.iconURL }
     var nameColor: UIColor = .red
     var nameFont: UIFont = UIFont.systemFont(ofSize: 30)
     init(raw: UserModel) {

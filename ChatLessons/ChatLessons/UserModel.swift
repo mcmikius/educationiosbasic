@@ -11,5 +11,5 @@ import Foundation
 struct UserModel {
     let name: String = "Max"
     let lastMessage: String = "Last message ...."
-    let iconUrl: String = "https://png.pngtree.com/svg/20170921/the_default_user__1213197.png"
+    let iconURL: String = "https://png.pngtree.com/svg/20170921/the_default_user__1213197.png"
 }

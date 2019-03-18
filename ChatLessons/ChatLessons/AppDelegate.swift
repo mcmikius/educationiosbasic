@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         if let navigationController = window?.rootViewController as? UINavigationController, let viewController = navigationController.viewControllers.first as? ViewController {
-            viewController.viewModel = ViewModel(provider: UserProvider(coreDataStack: coreDataStack))
+            let storage = RealmUserPersistentStorage()
+//            let storage = CoreDataUserPersistentStorage(coreData: coreDataStack)
+            viewController.viewModel = ViewModel(provider: UserProvider(persistentStorage: storage))
         }
         
         return true
@@ -46,6 +49,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.coreDataStack.saveContext()
     }
+    
+//    func setDefaultRealmForUser(username: String) {
+//        var config = Realm.Configuration()
+//
+//        // Use the default directory, but replace the filename with the username
+//        config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(username).realm")
+//
+//        // Set this as the configuration used for the default Realm
+//        Realm.Configuration.defaultConfiguration = config
+//    }
 
 
 }
