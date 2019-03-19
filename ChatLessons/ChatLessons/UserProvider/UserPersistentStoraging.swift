@@ -16,7 +16,7 @@ protocol UserPersistentStoraging {
 
 extension UserPersistentStoraging {
     func shouldFetchFromAPI() -> Bool {
-        return getCDUser()?.isEmpty == false
+        return getCDUser()?.isEmpty == true
     }
 }
 
