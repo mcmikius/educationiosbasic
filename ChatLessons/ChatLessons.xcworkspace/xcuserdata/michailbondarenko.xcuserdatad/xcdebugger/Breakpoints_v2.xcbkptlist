@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChatLessons/ViewModel/DialogViewModel.swift"
-            timestampString = "575234040.140466"
+            timestampString = "575319659.154246"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "sendMessage(completion:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "init(provider:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

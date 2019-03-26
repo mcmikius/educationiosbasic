@@ -23,6 +23,14 @@ class DialogViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.observableText.bidirectionalBind(to: messageTextView.reactive.text)
+//        messageTextView.reactive.text.bind(to: viewModel.observableText)
+        viewModel.isActionEnable.bind(to: sendButton.reactive.isEnabled)
+//        viewModel.textColor.bind(to: messageTextView.reactive.textColor)
+        
+        let obs = viewModel.observe(\.color) { [unowned self] object, change in
+            self.messageTextView.textColor = object.color
+        }
 
         self.messagesTableView.delegate = self
         self.messagesTableView.dataSource = self
@@ -91,8 +99,8 @@ class DialogViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 }
 
-extension DialogViewController: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        viewModel.text = messageTextView.text
-    }
-}
+//extension DialogViewController: UITextViewDelegate {
+//    func textViewDidChange(_ textView: UITextView) {
+//        viewModel.text = messageTextView.text
+//    }
+//}
