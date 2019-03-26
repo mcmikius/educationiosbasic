@@ -50,7 +50,7 @@ final class ViewModel {
     }
     
     func makeDialogViewModel() -> DialogViewModel {
-        return DialogViewModel()
+        return DialogViewModel(provider: MessageProvider())
     }
     
     func updateMessages(for userViewModel: UserViewObjectProtocol) {

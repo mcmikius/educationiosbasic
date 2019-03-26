@@ -11,10 +11,10 @@ import Foundation
 struct Message {
     
     let id: String = ""
-    let text: String = ""
+    let text: String
     let sender: String = ""
     let receiver: String = ""
-    let timestamp: Double = 0
+    let timestamp: Double
     
     
 }

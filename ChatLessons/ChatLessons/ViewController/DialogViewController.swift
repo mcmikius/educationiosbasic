@@ -29,11 +29,6 @@ class DialogViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("tableViewTapped")))
         self.messagesTableView.addGestureRecognizer(tapGesture)
-        
-        //Sample data
-        self.messagesArray.append("Test 1")
-        self.messagesArray.append("Test 2")
-        self.messagesArray.append("Test 3")
     } 
     
     override func didReceiveMemoryWarning() {
@@ -41,11 +36,15 @@ class DialogViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
-        self.messageTextView.endEditing(true)
+        viewModel.sendMessage { text in
+            
+        }
     }
     
     func tableViewTapped() {
-        self.messageTextView.endEditing(true)
+        if messageTextView.text.isEmpty == false {
+            
+        }
     }
     
     // MARK: TextField Delegate Methods
@@ -90,4 +89,10 @@ class DialogViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     */
 
+}
+
+extension DialogViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        viewModel.text = messageTextView.text
+    }
 }

@@ -39,7 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate {
             guard let userViewModel = self?.viewModel.observableItems.array[indexPath.row] else {
                 assertionFailure(); return
             }
-            //   self?.performSegue(withIdentifier: "segue", sender: self)
+               self?.performSegue(withIdentifier: "segue", sender: self)
             self?.viewModel.updateMessages(for: userViewModel)
             //   self?.router.showDialogViewController(for: self!)
             }.dispose(in: bag)
@@ -52,11 +52,11 @@ class ViewController: UIViewController, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.router.showDialogViewController(for: self)
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let viewController = segue.destination as? DialogViewController {
-//            viewController.viewModel = viewModel.makeDialogViewModel()
-//        } 
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? DialogViewController {
+            viewController.viewModel = viewModel.makeDialogViewModel()
+        }
+    }
 }
 
 //extension ViewController: UITableViewDataSource, UITableViewDelegate {

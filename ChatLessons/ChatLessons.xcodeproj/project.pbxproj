@@ -31,6 +31,7 @@
 		FB92C7DA223AC9430055B6B8 /* UserPersistentStoraging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB92C7D9223AC9430055B6B8 /* UserPersistentStoraging.swift */; };
 		FB92C7DF223AD9210055B6B8 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB92C7DE223AD9210055B6B8 /* RealmUser.swift */; };
 		FB92C7E1223AD9FC0055B6B8 /* RealmUserPersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB92C7E0223AD9FC0055B6B8 /* RealmUserPersistentStorage.swift */; };
+		FBAA4AC622495ACC0007A6B7 /* MessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA4AC522495ACC0007A6B7 /* MessageProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		FB92C7D9223AC9430055B6B8 /* UserPersistentStoraging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersistentStoraging.swift; sourceTree = "<group>"; };
 		FB92C7DE223AD9210055B6B8 /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		FB92C7E0223AD9FC0055B6B8 /* RealmUserPersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUserPersistentStorage.swift; sourceTree = "<group>"; };
+		FBAA4AC522495ACC0007A6B7 /* MessageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				FB62BAB0221B1E5800D99656 /* LaunchScreen.storyboard */,
 				FB62BAB3221B1E5800D99656 /* Info.plist */,
 				FB12F1362236DCA80018B475 /* DataModel.xcdatamodeld */,
+				FBAA4AC522495ACC0007A6B7 /* MessageProvider.swift */,
 			);
 			path = ChatLessons;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				FB12F1422236E3010018B475 /* CoreDataStack.swift in Sources */,
 				FB7095E0221EB3870013B1D8 /* DialogViewController.swift in Sources */,
 				FB62BABC221B20C200D99656 /* ViewModel.swift in Sources */,
+				FBAA4AC622495ACC0007A6B7 /* MessageProvider.swift in Sources */,
 				FB92C7D8223AC9020055B6B8 /* CoreDataUserPersistentStorage.swift in Sources */,
 				FB12F13E2236DD610018B475 /* CDMessage+CoreDataProperties.swift in Sources */,
 				FB92C7DF223AD9210055B6B8 /* RealmUser.swift in Sources */,
